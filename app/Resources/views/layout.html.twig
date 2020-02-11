@@ -54,16 +54,18 @@
 
                 </li>
                 <li class="menu-item-has-children">
-                    <a href="#">Shop</a>
+                    <a href="#">Products</a>
                     <ul class="sub-menu">
-                        <li><a href="shop.html">Shop</a></li>
-                        <li><a href="product-details.html">Add Product</a></li>
+                        <li><a href="shop.html">Buy our products</a></li>
+                        <li><a href="shop.html">Rent our products</a></li>
+                        <li><a href="add-product.html">Add your product</a></li>
+                        <li><a href="add-product.html">Add your product</a></li>
 
                     </ul>
                 </li>
 
                 <li class="menu-item-has-children">
-                    <a href="#">Event</a>
+                    <a href="#">Events</a>
                     <ul class="sub-menu">
                         <li><a href="event.html">Events</a></li>
                         <li><a href="event.html">Add Event</a></li>
@@ -73,13 +75,13 @@
                 <li class="menu-item-has-children">
                     <a href="#">Maintenance</a>
                     <ul class="sub-menu">
-                        <li><a href="maint.html">Mechanical</a></li>
+                        <li><a href="maint.html">Find your hero</a></li>
                         <li><a href="ajouter.html">Add Mechanical</a></li>
 
 
                     </ul>
                 <li >
-                    <a href="blog.html">Blog</a>
+                    <a href="blog.html">Forum</a>
 
                 </li>
 
@@ -109,7 +111,7 @@
 
                                     {% else %}
                                         <li><a href="{{ path('fos_user_security_login') }}">Sign In</a></li>
-                                        <li><a href="signup.html">Sign Up</a></li>
+                                        <li><a href="{{ path('fos_user_registration_register') }}">Sign Up</a></li>
                                         <li><a href="{{path('contact')}}">Contact Us</a></li>
                                     {% endif %}
 
@@ -171,11 +173,12 @@
                     <div class="footer-widget widget widget_nav_menu">
                         <ul>
                             <li><a href="{{path('home')}}">Home</a></li>
-                            <li><a href="{{path('about')}}">About</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Event</a></li>
                             <li><a href="#">Shop</a></li>
+
+                            <li><a href="#">Event</a></li>
+                            <li><a href="#">Blog</a></li>
                             <li><a href="{{path('contact')}}">Contact</a></li>
+                            <li><a href="{{path('about')}}">About</a></li>
                         </ul>
                     </div>
                 </div>
