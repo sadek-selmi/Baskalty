@@ -1,3 +1,10 @@
 events_homepage:
     path:     /
     defaults: { _controller: EventsBundle:Default:index }
+
+events_add:
+    path:     /Add
+    defaults: { _controller: EventsBundle:Default:Ajouter }
+events_show:
+    path:     /Afficher
+    defaults: { _controller: EventsBundle:Default:index }
