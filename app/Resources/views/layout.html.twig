@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+
+    <link rel=icon href=assets/img/favicon.png sizes="20x20" type="image/png">
+    <!-- animate -->
+    <link rel="stylesheet" href="{{ asset('front/css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('front/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('front/css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('front/css/slick.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('front/css/slick-theme.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('front/css/swiper.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('front/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('front/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('front/css/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ asset('front/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('front/css/responsive.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+</head>
+<body>
+<!--header-->
+<div class="body-overlay" id="body-overlay"></div>
+<div class="search-popup" id="search-popup">
+    <form action="https://codingeek.net/html/billatrail/index.html" class="search-form">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search.....">
+        </div>
+        <button type="submit" class="submit-btn"><i class="fa fa-search"></i></button>
+    </form>
+</div>
+<!-- //. search Popup -->
+
+
+<nav class="navbar navbar-area black-bg navbar-expand-lg ">
+    <div class="container nav-container">
+        <div class="responsive-mobile-menu">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#billatrail_main_menu"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                <span class="bar1"></span>
+                <span class="bar2"></span>
+                <span class="bar3"></span>
+            </button>
+        </div>
+        <div class="lz">
+            <a href="{{path('home')}}"> <img src="{{ asset('front/img/logo.png')}}" alt="logo"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="billatrail_main_menu">
+            <ul class="navbar-nav">
+                <li class=" current-menu-item">
+                    <a  href="{{path('home')}}">Home</a>
+
+                </li>
+                <li class="menu-item-has-children">
+                    <a href="#">Products</a>
+                    <ul class="sub-menu">
+                        <li><a href="shop.html">Buy our products</a></li>
+                        <li><a href="shop.html">Rent our products</a></li>
+                        <li><a href="add-product.html">Add your product</a></li>
+                        <li><a href="add-product.html">Add your product</a></li>
+
+                    </ul>
+                </li>
+
+                <li class="menu-item-has-children">
+                    <a href="#">Events</a>
+                    <ul class="sub-menu">
+                        <li><a href="event.html">Events</a></li>
+                        <li><a href="event.html">Add Event</a></li>
+
+
+                    </ul>
+                <li class="menu-item-has-children">
+                    <a href="#">Maintenance</a>
+                    <ul class="sub-menu">
+                        <li><a href="maint.html">Find your hero</a></li>
+                        <li><a href="ajouter.html">Add Mechanical</a></li>
+
+
+                    </ul>
+                <li  class="menu-item-has-children">
+                    <a href="#">Blog</a>
+                    <ul class="sub-menu">
+                        {% if app.user %}
+                        <li><a href="{{ path('newblog') }}">Add Blog</a></li>
+                        <li><a href="{{ path('affiche') }}">Show Blogs</a></li>
+                        {% else %}
+                        <li><a href="{{ path('affiche') }}">Show Blogs</a></li>
+                        {% endif %}
+
+                    </ul>
+                        </li>
+
+
+                <li><a href="{{path('about')}}">About</a></li>
+
+            </ul>
+        </div>
+        <div class="nav-right-content">
+            <ul class="nav-right-menu">
+                <li class="search" id="search">
+                    <i class="fa fa-search"></i>
+                </li>
+                <li>
+                    <div class="humberger-wrapper d-none d-lg-block">
+                        <div role="navigation" class="humberger-menu">
+                            <div id="menuToggle">
+                                <input type="checkbox" />
+                                <span></span>
+                                <span class="second"></span>
+                                <span></span>
+
+                                <ul id="menu">
+                                    {% if app.user %}
+
+                                        <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+
+                                    {% else %}
+                                        <li><a href="{{ path('fos_user_security_login') }}">Sign In</a></li>
+                                        <li><a href="{{ path('fos_user_registration_register') }}">Sign Up</a></li>
+                                        <li><a href="{{path('contact')}}">Contact Us</a></li>
+                                    {% endif %}
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--end header -->
+
+
+
+
+
+
+
+
+
+
+
+
+{% block content %}
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- footer area start -->
+<footer class="footer-area footer-style-2">
+    <div class="footer-top padding-top-40 padding-bottom-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-2">
+                    <div class="footer-widget widget">
+                        <div class="about_us_widget">
+                            <a href="{{path('home')}}" class="l">
+                                <img src="{{ asset('front/img/footer-logo.png')}}" alt="footer logo">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-6">
+                    <div class="footer-widget widget widget_nav_menu">
+                        <ul>
+                            <li><a href="{{path('home')}}">Home</a></li>
+                            <li><a href="#">Shop</a></li>
+
+                            <li><a href="#">Event</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="{{path('contact')}}">Contact</a></li>
+                            <li><a href="{{path('about')}}">About</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <div class="footer-widget widget widget_nav_menu">
+                        <ul>
+                            <li><a href="https://www.facebook.com/codingeek.net/" target="_blank"><i class="fa fa-facebook-f"></i></a></li>
+                            <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="#" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="copyright-area-inner">
+                        © Baskalti All rights reserved. Powered with <i class="fa fa-heart"></i> by Hazineha!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer area end -->
+
+<!-- back to top area start -->
+<div class="back-to-top">
+    <span class="back-top"><i class="fa fa-angle-up"></i></span>
+</div>
+<!-- back to top area end -->
+<script src="{{ asset('front/js/jquery-2.2.4.min.js') }}"></script>
+<!-- popper -->
+<script src="{{ asset('front/js/popper.min.js') }}"></script>
+<!-- bootstrap -->
+<script src="{{ asset('front/js/bootstrap.min.js') }}"></script>
+<!-- magnific popup -->
+<script src="{{ asset('front/js/jquery.magnific-popup.js') }}"></script>
+<!-- wow -->
+<script src="{{ asset('front/js/wow.min.js') }}"></script>
+<!-- nice select -->
+<script src="{{ asset('front/js/nice-select.js') }}"></script>
+<!-- owl carousel -->
+<script src="{{ asset('front/js/owl.carousel.min.js') }}"></script>
+<!-- Slick -->
+<script src="{{ asset('front/js/slick.min.js') }}"></script>
+<!-- Slick Animation -->
+<script src="{{ asset('front/js/slick-animation.js') }}"></script>
+<!-- swiper -->
+<script src="{{ asset('front/js/swiper.min.js') }}"></script>
+<!-- waypoint -->
+<script src="{{ asset('front/js/waypoints.min.js') }}"></script>
+<!-- validate -->
+<script src="{{ asset('front/js/jquery.validate.min.js') }}"></script>
+<!-- counterup -->
+<script src="{{ asset('front/js/jquery.counterup.min.js') }}"></script>
+<!-- imageloaded -->
+<script src="{{ asset('front/js/imagesloaded.pkgd.min.js') }}"></script>
+<!-- isotope -->
+<script src="{{ asset('front/js/isotope.pkgd.min.js') }}"></script>
+<!-- rProgressbar -->
+<script src="{{ asset('front/js/jQuery.rProgressbar.min.js') }}"></script>
+<!-- contact form -->
+<script src="{{ asset('front/js/contact.js') }}"></script>
+<!-- main js -->
+<script src="{{ asset('front/js/script.js') }}"></script>
+<script src="{{ asset('front/js/main.js') }}"></script>
+</div>
+</body>
+</html>

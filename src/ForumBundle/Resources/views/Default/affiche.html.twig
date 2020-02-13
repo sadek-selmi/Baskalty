@@ -1,0 +1,65 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    <div class="col-lg-8 col-md-12">
+        <div class="blog-left-content">
+            <div class="img-item row margin-bottom-30">
+                <div class="col-md-6">
+                    <div class="row h-100">
+                        <div class="blog-thumb d-flex">
+                            <img src="assets/img/blog/image-item1.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="content">
+    {% for c in cyrine %}
+
+        <h4>{{ c.title }}  {{ c.date|date() }}</h4>
+                        <span class="text" style="color: #0b0b0b">{{ c.content }}</span>
+                        <ul class="post-meta">
+                            <li><a href="#"><i class="fa fa-comments"></i> 1200 Comments</a></li>
+                            <li><a href="#"><i class="fa fa-like"></i> 120 Likes</a></li>
+                        </ul>
+
+                        <div class="btn-wrapper desktop-left">
+                            <a href = "{{ path('detais', {'id':c.id})}}" class="btn btn-element btn-normal btn-red">Read More</a>
+
+                        </div>
+    {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+            <div class="img-item row margin-bottom-30">
+                <div class="col-md-6">
+                    <div class="row h-100">
+                        <div class="blog-thumb d-flex">
+                            <!--Image Link -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

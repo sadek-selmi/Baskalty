@@ -1,0 +1,29 @@
+admin:
+    resource: "@AdminBundle/Resources/config/routing.yml"
+    prefix:   /Admin
+
+forum:
+    resource: "@ForumBundle/Resources/config/routing.yml"
+    prefix:   /forum
+
+rent_products:
+    resource: "@RentProductsBundle/Resources/config/routing.yml"
+    prefix:   /Rent
+
+sellroduct:
+    resource: "@SellProductsBundle/Resources/config/routing.yml"
+    prefix:   /Sell
+
+maintenance:
+    resource: "@MaintenanceBundle/Resources/config/routing.yml"
+    prefix:   /Maintenance
+
+events:
+    resource: "@EventsBundle/Resources/config/routing.yml"
+    prefix:   /Events
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

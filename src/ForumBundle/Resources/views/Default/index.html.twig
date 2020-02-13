@@ -1,0 +1,389 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+
+
+
+    <!-- nav area start -->
+
+    <!-- breadcrumb start -->
+    <div class="breadcrumb-style-3">
+        <div class="breadcrumb-inner">
+            <h1 class="page-title">Blog</h1>
+            <ul class="page-list">
+                <li><a href="index-2.html">Home</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+        <div class="breadcrumb-slider">
+            <div class="single-item">
+                <div class="slider-top">
+                    <span class="total"></span>
+                    <span class="title">Biking</span>
+                </div>
+                <div class="slider-bottom">
+                    <span class="title">TRAVEL</span>
+                    <h1>Colors & Sound of San Miguel de Allende, Mexico</h1>
+                    <span class="content">By Elijah SteinApril 28, 20194 mins read</span>
+                </div>
+            </div>
+
+        </div>
+    </div
+    <!-- breadcrumb end -->
+
+    <!-- search start -->
+    <div class="search-area padding-top-70 padding-bottom-65">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="form-group">
+                        <form action="#" class="form">
+                            <div class="form-field">
+                                <label>New Blog</label>
+                                <div class="btn-wrapper">
+                                    <a href="{{ path('newblog') }}" class="btn btn-element btn-lg btn-red" style="width: 65%; height:65px "> Create your blog</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-4 offset-md-1">
+                    <div class="form-group">
+                        <form action="#" class="form">
+                            <div class="form-field search-form">
+                                <label>Search</label>
+                                <input type="text" placeholder="Search" class="input-form"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- search end -->
+
+    <!-- slider1 start -->
+    <div class="blog-slider-style-01 margin-top-120 margin-bottom-120">
+        <div class="container">
+            <div class="row">
+                <div class="blog-slider1">
+                    <div class="single-item">
+                        <img src="{{ asset('front/img/blog/top-slider1.png')}}" alt="">
+                        <div class="slider-content">
+                            <a>Lorem ipsum dolor sit ame</a>
+                        </div>
+                    </div>
+                    <div class="single-item">
+                        <img src="{{ asset('front/img/blog/top-slider2.png')}}" alt="">
+                        <div class="slider-content">
+                            <a>Lorem ipsum dolor sit ame</a>
+                        </div>
+                    </div>
+                    <div class="single-item">
+                        <img src="{{ asset('front/img/blog/top-slider3.png')}}" alt="">
+                        <div class="slider-content">
+                            <a>Lorem ipsum dolor sit ame</a>
+                        </div>
+                    </div>
+                    <div class="single-item">
+                        <img src="{{ asset('front/img/blog/top-slider1.png')}}" alt="">
+                        <div class="slider-content">
+                            <a>Lorem ipsum dolor sit ame</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- slider1 end -->
+
+    <!-- slider2 start -->
+    <div class="blog-slider-style-02">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-6">
+                    <div class="blog-slider2 padding-100 padding-lr-50">
+                        <div class="single-item">
+                            <span class="title">Swelled Concisely in Roadrunner</span>
+                            <p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet semper augue. Maecenas gravida tortor sit amet enim venenatis tristique. Nulla vehicula porta tortor non maximus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam eu viverra augue. Donec aliquet dignissim augue, nec posuere augue pharetra sed. Pellentesque consequat ornare ornare. Aliquam erat volutpat.</p>
+                            <span class="sign">Willam Smith</span>
+                        </div>
+                        <div class="single-item">
+                            <span class="title">Swelled Concisely in Roadrunner</span>
+                            <p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet semper augue. Maecenas gravida tortor sit amet enim venenatis tristique. Nulla vehicula porta tortor non maximus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam eu viverra augue. Donec aliquet dignissim augue, nec posuere augue pharetra sed. Pellentesque consequat ornare ornare. Aliquam erat volutpat.</p>
+                            <span class="sign">Willam Smith</span>
+                        </div>
+                        <div class="single-item">
+                            <span class="title">Swelled Concisely in Roadrunner</span>
+                            <p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet semper augue. Maecenas gravida tortor sit amet enim venenatis tristique. Nulla vehicula porta tortor non maximus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam eu viverra augue. Donec aliquet dignissim augue, nec posuere augue pharetra sed. Pellentesque consequat ornare ornare. Aliquam erat volutpat.</p>
+                            <span class="sign">Willam Smith</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 offset-1 col-md-5 d-none d-md-block">
+                    <img src="{{ asset('front/img/blog/roadrunner.png')}}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="blog-content padding-top-120 padding-bottom-115">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <div class="blog-left-content">
+                        <div class="img-item row margin-bottom-30">
+                            <div class="col-md-6">
+                                <div class="row h-100">
+                                    <div class="blog-thumb d-flex">
+                                        <img src="assets/img/blog/image-item1.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="content">
+                                    <h4>Biking, May 1, 2019</h4>
+                                    <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet semper augue.</span>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet semper augue. Maecenas gravida tortor sit amet enim venenatis tristique.</p>
+                                    <ul class="post-meta">
+                                        <li><a href="#"><i class="fa fa-comments"></i> 1200 Comments</a></li>
+                                        <li><a href="#"><i class="fa fa-heart"></i> 120 Likes</a></li>
+                                    </ul>
+                                    <div class="btn-wrapper desktop-left">
+                                        <a href="blog-details.html" class="btn btn-element btn-normal btn-red">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-item row margin-bottom-30">
+                            <div class="col-md-6">
+                                <div class="row h-100">
+                                    <div class="blog-thumb d-flex">
+                                        <img src="{{ asset('front/img/blog/image-item2.png')}}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="content">
+                                    <h4>Biking, May 1, 2019</h4>
+                                    <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet semper augue.</span>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet semper augue. Maecenas gravida tortor sit amet enim venenatis tristique.</p>
+                                    <ul class="post-meta">
+                                        <li><a href="#"><i class="fa fa-comments"></i> 1200 Comments</a></li>
+                                        <li><a href="#"><i class="fa fa-heart"></i> 120 Likes</a></li>
+                                    </ul>
+                                    <div class="btn-wrapper desktop-left">
+                                        <a href="blog-details.html" class="btn btn-element btn-normal btn-red">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-item row margin-bottom-30">
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="blog-slider3">
+                                        <div class="single-item">
+                                            <img src="{{ asset('front/img/blog/slider-item1.png')}}" alt="">
+                                        </div>
+                                        <div class="single-item">
+                                            <img src="{{ asset('front/img/blog/slider-item1.png')}}" alt="">
+                                        </div>
+                                        <div class="single-item">
+                                            <img src="{{ asset('front/img/blog/slider-item1.png')}}" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="content">
+                                    <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet semper augue. Lorem ipsum dolor sit amet</span>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet semper augue. Maecenas gravida tortor sit amet enim venenatis tristique. Nulla vehicula porta tortor non maximus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam eu viverra augue.</p>
+                                    <ul class="post-meta">
+                                        <li><a href="#"><i class="fa fa-comments"></i> 1200 Comments</a></li>
+                                        <li><a href="#"><i class="fa fa-heart"></i> 120 Likes</a></li>
+                                    </ul>
+                                    <div class="btn-wrapper desktop-left">
+                                        <a href="blog-details.html" class="btn btn-element btn-normal btn-red">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-item row margin-bottom-30">
+                            <div class="col-md-6">
+                                <div class="row h-100">
+                                    <div class="blog-thumb d-flex">
+                                        <img src="{{ asset('front/img/blog/image-item1.png')}}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="content">
+                                    <h4>Biking, May 1, 2019</h4>
+                                    <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet semper augue.</span>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet semper augue. Maecenas gravida tortor sit amet enim venenatis tristique.</p>
+                                    <ul class="post-meta">
+                                        <li><a href="#"><i class="fa fa-comments"></i> 1200 Comments</a></li>
+                                        <li><a href="#"><i class="fa fa-heart"></i> 120 Likes</a></li>
+                                    </ul>
+                                    <div class="btn-wrapper desktop-left">
+                                        <a href="blog-details.html" class="btn btn-element btn-normal btn-red">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-item row margin-bottom-30">
+                            <div class="col-md-6">
+                                <div class="row h-100">
+                                    <div class="blog-thumb d-flex">
+                                        <img src="{{ asset('front/img/blog/image-item2.png')}}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="content">
+                                    <h4>Biking, May 1, 2019</h4>
+                                    <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet semper augue.</span>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet semper augue. Maecenas gravida tortor sit amet enim venenatis tristique.</p>
+                                    <ul class="post-meta">
+                                        <li><a href="#"><i class="fa fa-comments"></i> 1200 Comments</a></li>
+                                        <li><a href="#"><i class="fa fa-heart"></i> 120 Likes</a></li>
+                                    </ul>
+                                    <div class="btn-wrapper desktop-left">
+                                        <a href="blog-details.html" class="btn btn-element btn-normal btn-red">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-pagination margin-top-55">
+                        <ul>
+                            <li>
+                                <span class="page-bumber">1</span>
+                            </li>
+                            <li>
+                                <span class="page-bumber">2</span>
+                            </li>
+                            <li>
+                                <span class="page-bumber">3</span>
+                            </li>
+                            <li>
+                                <span class="page-bumber">4</span>
+                            </li>
+                            <li>
+                                <span class="page-bumber">5</span>
+                            </li>
+                            <li>
+                                <span class="next page-bumber"><i class="fa fa-long-arrow-right"></i></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="blog-right-content">
+                        <h1>Most Liked</h1>
+                        <div class="share-img-item">
+                            <div class="img-part">
+                                <a href="blog-details.html"><img src="{{ asset('front/img/blog/share1.png')}}" alt=""></a>
+                            </div>
+                            <div class="content-part">
+                                <h4>Biking</h4>
+                                <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                <ul class="post-meta">
+                                    <li><a href="#"><i class="fa fa-heart"></i> 120 Likes</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="share-img-item">
+                            <div class="img-part">
+                                <a href="blog-details.html"><img src="{{ asset('front/img/blog/share2.png')}}" alt=""></a>
+                            </div>
+                            <div class="content-part">
+                                <h4>Biking</h4>
+                                <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                <ul class="post-meta">
+                                    <li><a href="#"><i class="fa fa-heart"></i> 120 Likes</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="share-img-item">
+                            <div class="img-part">
+                                <a href="blog-details.html"><img src="{{ asset('front/img/blog/share3.png')}}" alt=""></a>
+                            </div>
+                            <div class="content-part">
+                                <h4>Biking</h4>
+                                <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                <ul class="post-meta">
+                                    <li><a href="#"><i class="fa fa-heart"></i> 120 Likes</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="share-img-item">
+                            <div class="img-part">
+                                <a href="blog-details.html"><img src="{{ asset('front/img/blog/share4.png')}}" alt=""></a>
+                            </div>
+                            <div class="content-part">
+                                <h4>Biking</h4>
+                                <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                <ul class="post-meta">
+                                    <li><a href="#"><i class="fa fa-heart"></i> 120 Likes</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="blog-right-slider margin-top-30">
+                        <div class="single-item">
+                            <img src="{{ asset('front/img/blog/right-slider1.png')}}" alt="">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit</p>
+                            <span>Categories</span>
+                        </div>
+                        <div class="single-item">
+                            <img src="{{ asset('front/img/blog/right-slider1.png')}}" alt="">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit</p>
+                            <span>Categories</span>
+                        </div>
+                        <div class="single-item">
+                            <img src="{{ asset('front/img/blog/right-slider1.png')}}" alt="">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit</p>
+                            <span>Categories</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- blog content end -->
+
+    <!-- instagram start -->
+    <div class="instagram-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h1>FOLLOW @ INSTAGRAM</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="owl-carousel owl-theme">
+                    <div class="item"><img src="{{ asset('front/img/blog/instagram1.png')}}" alt="instagram"></div>
+                    <div class="item"><img src="{{ asset('front/img/blog/instagram2.png')}}" alt="instagram"></div>
+                    <div class="item"><img src="{{ asset('front/img/blog/instagram3.png')}}" alt="instagram"></div>
+                    <div class="item"><img src="{{ asset('front/img/blog/instagram4.png')}}" alt="instagram"></div>
+                    <div class="item"><img src="{{ asset('front/img/blog/instagram5.png')}}" alt="instagram"></div>
+                    <div class="item"><img src="{{ asset('front/img/blog/instagram6.png')}}" alt="instagram"></div>
+                    <div class="item"><img src="{{ asset('front/img/blog/instagram1.png')}}" alt="instagram"></div>
+                    <div class="item"><img src="{{ asset('front/img/blog/instagram1.png')}}" alt="instagram"></div>
+                    <div class="item"><img src="{{ asset('front/img/blog/instagram2.png')}}" alt="instagram"></div>
+                    <div class="item"><img src="{{ asset('front/img/blog/instagram3.png')}}" alt="instagram"></div>
+                    <div class="item"><img src="{{ asset('front/img/blog/instagram4.png')}}" alt="instagram"></div>
+                    <div class="item"><img src="{{ asset('front/img/blog/instagram5.png')}}" alt="instagram"></div>
+                    <div class="item"><img src="{{ asset('front/img/blog/instagram6.png')}}" alt="instagram"></div>
+                    <div class="item"><img src="{{ asset('front/img/blog/instagram1.png')}}" alt="instagram"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- instagram end -->
+
+    <div class="bottom-bg margin-top-55"></div>
+
+
+{% endblock %}

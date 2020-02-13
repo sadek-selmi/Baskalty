@@ -1,0 +1,18 @@
+forum_homepage:
+    path:     /
+    defaults: { _controller: ForumBundle:Default:index }
+newblog :
+    path:     /newblog
+    defaults: { _controller: ForumBundle:Blog:newblog }
+affiche :
+    path:     /affiche
+    defaults: { _controller: ForumBundle:Default:affiche }
+edit :
+    path:     /edit/{id}
+    defaults: { _controller: ForumBundle:Default:edit }
+detais :
+    path:     /detais/{id}
+    defaults: { _controller: ForumBundle:Default:detais }
+delete :
+    path:     /delete/{id}
+    defaults: { _controller: ForumBundle:Default:delete }

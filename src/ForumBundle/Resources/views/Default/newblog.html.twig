@@ -1,0 +1,43 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+    <!-- By Cyrine -->
+
+    <div class="breadcrumb-style-2">
+        <div class="breadcrumb-inner">
+            <h1 class="page-title color-black">New Post</h1>
+        </div>
+    </div>
+    {{ form_start(form) }}
+    <div class="form-area">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-8 offset-lg-2 d-flex justify-content-center">
+                    <div class="form-group">
+                        <form action="#" class="form">
+                            <div class="form-field margin-top-30">
+                                {{ form_widget(form.title,{'attr': {'class': 'input-form', 'placeholder': 'Title'}}) }}
+                            </div>
+
+                            <div class="form-field margin-top-30">
+                                {{ form_widget(form.content,{'attr': {'class': 'input-form','placeholder': 'Content'}}) }}
+                            </div>
+
+                            <div class="form-field margin-top-30">
+                                {{ form_widget(form.date)}}
+
+                            </div>
+                            <div class="form-field margin-top-30">
+                                {{ form_end(form) }}
+
+                            </div>
+                            <br>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,44 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 05/09/2019 08:58
+  	*/
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("Flaticon.html");
+  src: url("Flaticond41d.html?#iefix") format("embedded-opentype"),
+       url("Flaticon-2.html") format("woff2"),
+       url("Flaticon-3.html") format("woff"),
+       url("Flaticon-4.html") format("truetype"),
+       url("Flaticon-5.html#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("Flaticon-5.html#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: Flaticon;
+        font-size: 20px;
+font-style: normal;
+margin-left: 20px;
+}
+
+.flaticon-phone:before { content: "\f100"; }
+.flaticon-pin:before { content: "\f101"; }
+.flaticon-mail:before { content: "\f102"; }
+.flaticon-star:before { content: "\f103"; }
+.flaticon-settings:before { content: "\f104"; }
+.flaticon-baseball-cap:before { content: "\f105"; }
+.flaticon-fax:before { content: "\f106"; }
+.flaticon-pump:before { content: "\f107"; }
+.flaticon-pump-1:before { content: "\f108"; }
+.flaticon-expert-route:before { content: "\f109"; }
+.flaticon-brain:before { content: "\f10a"; }
+.flaticon-pedal:before { content: "\f10b"; }
