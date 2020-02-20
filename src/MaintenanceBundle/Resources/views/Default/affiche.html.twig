@@ -1,0 +1,61 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+    <div class="breadcrumb-style-2" style="background-image:url(assets/img/breadcrumb/button.png);">
+        <div class="breadcrumb-inner">
+            <h1 class="page-title">List of mechanics</h1>
+        </div>
+    </div>
+    <!-- breadcrumb end -->
+    <!-- product-details-tab start -->
+
+    {% for m in mechaniciens %}
+   {% if m.actif == 1 %}
+    <div class="product-details-tab">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="slider-tabfor">
+                        <div class="single-item">
+                            <img src="{{ asset('') }}{{ vich_uploader_asset(m, 'imageFile') }}"
+                                 alt="">
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="content-part">
+                        <h1>{{ m.nom }}{{ m.prenom }}<br> <span>{{ m.experience }}</span></h1>
+                        <span class="specifications">adresse: {{ m.mail }}</span>
+                        <span class="specifications">Num tel: {{ m.numTel }} </span>
+                        <span class="specifications">adresse: {{ m.region }}</span><br>
+                        <span class="point">4.5</span><span class="rating"><i class="fa fa-star"></i><i
+                                    class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                    class="fa fa-star-half-o"></i></span>
+                        <p class="price">PRIX : ${{ m.prix }}/H  </p>
+                        <p class="description">{{ m.description }}.</p>
+                        <div class="margin-top-30 margin-bottom-30 btn-wrapper desktop-left">
+
+                            <a href="{{ path('DetailsMech',{'id':m.id}) }}" class="btn sm-btn">Details</a>
+
+                        </div>
+
+                        {%if app.user == m.userid  %}
+                        <div class="margin-top-30 margin-bottom-30 btn-wrapper desktop-left">
+
+                            <a href="{{ path('update_mecanicien',{'id':m.id}) }}" class="btn sm-btn">Update info</a>
+                            <a href="{{ path('delete_mecanicien',{'id':m.id }) }}" class="btn sm-btn black-btn">Delete me <i class="fa fa-heart"></i></a>
+                        </div>
+                        {% endif %}
+
+
+                    </div>
+                </div>
+            </div></div>
+        {% endif %}
+        {% endfor %}
+    <div  class="navigation ">
+        {{ knp_pagination_render(mechaniciens) }}
+    </div>
+{% endblock %}

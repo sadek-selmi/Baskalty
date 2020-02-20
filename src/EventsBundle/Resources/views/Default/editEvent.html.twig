@@ -1,0 +1,65 @@
+{% extends  'layout.html.twig' %}
+{% block content %}
+    <div class="breadcrumb-style-2">
+        <div class="breadcrumb-inner">
+            <h1 class="page-title color-black">Update Event</h1>
+        </div>
+    </div>
+    {{form_start(form)}}
+    <div class="form-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 d-flex justify-content-center">
+                    <div class="form-group">
+
+                        <div class="form-field margin-top-30">
+                            {{ form_widget(form.theme,{ 'attr': {'class': "input-form",
+                                'placeholder': 'Event Theme'} }) }}
+                        </div>
+                        <div class="form-field margin-top-30">
+                            {{ form_widget(form.name,{ 'attr': {'class': "input-form",
+                                'placeholder': 'Event Name'} }) }}
+                        </div>
+
+                        <div class="form-field margin-top-30">
+                            {{ form_widget(form.location,{'attr':{'class':"input-form",
+                                'placeholder':'location'}}) }}
+                        </div>
+
+                        <div class="form-field margin-top-30">
+                            {{ form_widget(form.description,{'attr':{'class':'input-form',
+                                'placeholder':'description'}})}}
+                        </div>
+                        <div class="form-field margin-top-30">
+                            {{ form_widget(form.start,{'attr':{'class':'input-form',
+                                'placeholder':'Description'}})}}
+                        </div>
+                        <div class="form-field margin-top-30">
+                            {{ form_widget(form.end,{'attr':{'class':'input-form'}})}}
+                        </div>
+                        <div class="form-field margin-top-30">
+                            {{ form_widget(form.imageFile,{'attr':{'class':'input-form', 'placeholder':'Image'}})}}
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-8 offset-lg-2 d-flex justify-content-center">
+
+                </div>
+                <div class="col-lg-8 offset-lg-2 margin-top-50">
+                    <div class="controler-wrapper">
+                        <div class="btn-wrapper desktop-left padding-bottom-10">
+                            {{ form_widget(form.Publier,{'attr':{'class':'button-explore'}})}}
+                        </div>
+                        <div class="progressbar">
+                            <span class="home-slider-progress"></span>
+                            <span class="home-slider-progress-active"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}

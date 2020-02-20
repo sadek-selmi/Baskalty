@@ -1,0 +1,43 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="product-details-tab">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="slider-tabfor slick-initialized slick-slider">
+                        <div aria-live="polite" class="slick-list draggable">
+                            <div class="slick-track" role="listbox" style="opacity: 1; width: 2225px;">
+                                <div class="single-item slick-slide slick-current slick-active" data-slick-index="0"
+                                     aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide10"
+                                     style="width: 445px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;">
+
+                                    <img src="{{ asset('') }}{{ vich_uploader_asset(details, 'imageFile') }}"
+                                         alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="content-part">
+                        <h1>{{ details.name }}<br> <span>{{ details.description }}</span></h1>
+                        <span class="specifications">{{ details.name }}</span>
+                        <span class="specifications">{{ details.reference }} </span>
+                        <span class="point">4.5</span><span class="rating"><i class="fa fa-star"></i><i
+                                    class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                    class="fa fa-star-half-o"></i></span>
+                        <p class="price">Price : {{ details.price }}</p>
+                        <p class="description">{{ details.description }}</p>
+                        <div class="margin-top-30 margin-bottom-30 btn-wrapper desktop-left">
+                            <a href="{{ path('shopping_card') }}" class="btn sm-btn">Add to cart</a>
+                            <a href="#" class="btn sm-btn black-btn">Add to favourite <i class="fa fa-heart"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends 'layout.html.twig'  %}
+
+{% block content %}
+    <div class="modal fade show" id="cart-modal" role="dialog" style="padding-right: 17px; display: block;">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="invoice">
+                        <div class="invoice-top">
+                            <h1>Shopping Cart</h1>
+                            <button type="button" class="close" data-dismiss="modal">Close - </button>
+                        </div>
+                        <div class="invoice-bottom">
+                            <h3 class="item-title">Items (6)</h3>
+                            <ul class="single-item">
+                                <li class="single-cart-item">
+                                    <div class="thumb">
+                                        <img src="{{ asset('front/img/checkout/item1.png') }}" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <h3>Helmate<br> <span>For Men, Made in China, 2017</span></h3>
+                                        <span>$250.00</span>
+                                    </div>
+                                    <span class="close">x</span>
+                                </li>
+                                <li class="single-cart-item">
+                                    <div class="thumb">
+                                        <img src="{{  asset('front/img/checkout/item2.png')}}" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <h3>Helmate<br> <span>For Men, Made in China, 2017</span></h3>
+                                        <span>$250.00</span>
+                                    </div>
+                                    <span class="close">x</span>
+                                </li>
+                                <li class="single-cart-item">
+                                    <div class="thumb">
+                                        <img src="{{ asset('front/img/checkout/item3.png') }}" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <h3>Helmate<br> <span>For Men, Made in China, 2017</span></h3>
+                                        <span>$250.00</span>
+                                    </div>
+                                    <span class="close">x</span>
+                                </li>
+                                <li class="single-cart-item">
+                                    <div class="thumb">
+                                        <img src="{{ asset('front/img/checkout/item4.png') }}" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <h3>Helmate<br> <span>For Men, Made in China, 2017</span></h3>
+                                        <span>$250.00</span>
+                                    </div>
+                                    <span class="close">x</span>
+                                </li>
+                                <li class="single-cart-item">
+                                    <div class="thumb">
+                                        <img src="{{ asset('front/img/checkout/item5.png') }}" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <h3>Helmate<br> <span>For Men, Made in China, 2017</span></h3>
+                                        <span>$250.00</span>
+                                    </div>
+                                    <span class="close">x</span>
+                                </li>
+                            </ul>
+                            <div class="total">
+                                <h3>Subtotal</h3>
+                                <p class="text-right">$1250.00</p>
+                            </div>
+                            <div class="btn-checkout btn-wrapper">
+                                <a class="btn btn-secondary btn-lg btn-block" href="#"> Checkout process</a>
+                            </div>
+                            <div class="btn-wrapper desktop-center">
+                                <a href="#" class="btn btn-invoice">Continue Shopping <i class="fa fa-long-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+{% endblock %}

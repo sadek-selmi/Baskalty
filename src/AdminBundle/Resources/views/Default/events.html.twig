@@ -1,0 +1,153 @@
+{% extends "Admin/layout.html.twig" %}
+{% block content %}
+<script src="{{ asset('js/jquery.min.js') }}"></script>
+<section class="content">
+    <section class="container-fluid">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <ul class="breadcrumb breadcrumb-style ">
+                        <li class="breadcrumb-item">
+                            <h4 class="page-title">Dashboard</h4>
+                        </li>
+                        <li class="breadcrumb-item bcrumb-1">
+                            <a href="index.html">
+                                <i class="fas fa-home"></i> Home</a>
+                        </li>
+                        <li class="breadcrumb-item active">Events</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row clearfix">
+            <!-- Task Info -->
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            <strong>Validation</strong> Events </h2>
+                        <form class="navbar-form">
+                            <th><input type="text" id="search" placeholder="Rechercher  ..."></th>
+                            <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                <i class="material-icons">search</i>
+
+                            </button>
+
+                        </form>
+                        <ul class="header-dropdown m-r--5">
+                            <li class="dropdown">
+                                <a href="#" onClick="return false;" class="dropdown-toggle" data-toggle="dropdown"
+                                   role="button"
+                                   aria-haspopup="true" aria-expanded="false">
+                                    <i class="material-icons">more_vert</i>
+                                </a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li>
+                                        <a href="#" onClick="return false;">Action</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" onClick="return false;">Another action</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" onClick="return false;">Something else here</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tableBody">
+                        <div class="table-responsive">
+
+                            <table class="table table-hover dashboard-task-infos" id="tableac">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Activity</th>
+                                    <th>Localisation</th>
+                                    <th>Phone</th>
+                                    <th>Responsable</th>
+                                    <th>Roles User</th>
+                                    <th>Roles Association</th>
+
+                                    <th>Action</th>
+                                </tr>
+                                {% for e in events %}
+
+                                </thead>
+
+                                <tbody>
+                                <tr>
+                                    <td class="table-img">
+                                        <img src="{{ asset('dashboard/') }}assets/images/user/user1.jpg" alt="">
+                                    </td>
+                                    <td>{{ e.nom }}</td>
+                                    <td>{{ e.Mail }}</td>
+                                    <td>{{ e.activite }}</td>
+                                    <td>{{ e.Localisation }}</td>
+
+                                    <td>{{ e.Tel }}</td>
+                                    <td>{{ e.Responsable }}</td>
+
+                                        <td><a href="{{ path('admin_changeRoleuser',{id:e.user.id}) }}"><i
+                                                        class="material-icons">U</i></a></td>
+
+
+
+                                    <td><a href="{{ path('admin_changeRoleAssociation',{id:e.user.id}) }}"><i
+                                                    class="material-icons">A</i></a></td>
+
+                                    <td>
+                                    <a href="{{ path('DeleteFORM_homepage',{id:e.id}) }}"  class="btn tblActnBtn">
+                                        <i class="material-icons">delete</i>
+                                    </a></td>
+                                    </td>
+                                </tr>
+
+
+                                </tbody>
+                                {% endfor %}
+                            </table>
+
+
+                        </div>
+                    </div>
+
+                </div>
+                <div  class="navigation ">
+                    {{ knp_pagination_render(events) }}
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+        $(document).ready(function () {
+            $('#search').keyup(function () {
+                search_table($(this).val());
+            });
+
+            function search_table(value) {
+                $('#tableac tbody tr').each(function () {
+                    var found = 'false';
+                    $(this).each(function () {
+                        if ($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0) {
+                            found = 'true';
+                        }
+                    });
+                    if (found == 'true') {
+                        $(this).show();
+
+                    } else {
+                        $(this).hide();
+
+                    }
+                });
+            }
+        });
+    </script>
+    {% endblock %}
+

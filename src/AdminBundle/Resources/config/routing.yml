@@ -1,0 +1,42 @@
+admin_homepage:
+    path:     /
+    defaults: { _controller: AdminBundle:Default:index }
+admin_changeRoleAssociation:
+    path:     /makeAssociation/{id}
+    defaults: { _controller: AdminBundle:Default:makeASSOCIATION }
+
+user_homepage:
+    path:     /user
+    defaults: { _controller: AdminBundle:Default:AfficherUser}
+contact_homepage:
+    path:     /contact
+    defaults: { _controller: AdminBundle:Default:contact}
+Eventapprov_homepage:
+    path:     /Events
+    defaults: { _controller: AdminBundle:Default:EventUser}
+Delete_homepage:
+    path:     /Delete/{id}
+    defaults: { _controller: AdminBundle:Default:delete}
+detailscontact_homepage:
+    path:     /contact/{id}
+    defaults: { _controller: AdminBundle:Default:detail}
+Deletemessage_homepage:
+    path:     /Deletemessage/{id}
+    defaults: { _controller: AdminBundle:Default:delet}
+DeleteFORM_homepage:
+    path:     /Deletefor/{id}
+    defaults: { _controller: AdminBundle:Default:deletefor}
+
+admin_changeRoleuser:
+    path:     /makeuser/{id}
+    defaults: { _controller: AdminBundle:Default:makesimple }
+
+Deletemech_homepage:
+    path:     /Deletemech/{id}
+    defaults: { _controller: AdminBundle:Default:deletemech}
+mechuser_homepage:
+    path:     /Mechuser
+    defaults: { _controller: AdminBundle:Default:mechUser}
+actif:
+    path:     /actif/{id}
+    defaults: { _controller: AdminBundle:Default:actif}

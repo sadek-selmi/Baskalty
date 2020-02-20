@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <head>
+        <meta charset="UTF-8"/>
+        <title></title>
+
+        <link rel=icon href=assets/img/favicon.png sizes="20x20" type="image/png">
+        <!-- animate -->
+        <link rel="stylesheet" href="{{ asset('front/css/animate.css') }}">
+        <link rel="stylesheet" href="{{ asset('front/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('front/css/magnific-popup.css') }}">
+        <link rel="stylesheet" href="{{ asset('front/css/slick.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('front/css/slick-theme.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('front/css/swiper.min.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('front/css/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('front/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('front/css/flaticon.css') }}">
+        <link rel="stylesheet" href="{{ asset('front/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('front/css/responsive.css') }}">
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+    </head>
+<body>
+{% block content %}
+    {% if app.request.hasPreviousSession %}
+        {% for type, messages in app.session.flashbag.all() %}
+            {% for message in messages %}
+                <div class="flash-{{ type }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+
+    {% block fos_user_content %}
+    {% endblock fos_user_content %}
+
+{% endblock %}
+
+<script src="{{ asset('front/js/jquery-2.2.4.min.js') }}"></script>
+<!-- popper -->
+<script src="{{ asset('front/js/popper.min.js') }}"></script>
+<!-- bootstrap -->
+<script src="{{ asset('front/js/bootstrap.min.js') }}"></script>
+<!-- magnific popup -->
+<script src="{{ asset('front/js/jquery.magnific-popup.js') }}"></script>
+<!-- wow -->
+<script src="{{ asset('front/js/wow.min.js') }}"></script>
+<!-- nice select -->
+<script src="{{ asset('front/js/nice-select.js') }}"></script>
+<!-- owl carousel -->
+<script src="{{ asset('front/js/owl.carousel.min.js') }}"></script>
+<!-- Slick -->
+<script src="{{ asset('front/js/slick.min.js') }}"></script>
+<!-- Slick Animation -->
+<script src="{{ asset('front/js/slick-animation.js') }}"></script>
+<!-- swiper -->
+<script src="{{ asset('front/js/swiper.min.js') }}"></script>
+<!-- waypoint -->
+<script src="{{ asset('front/js/waypoints.min.js') }}"></script>
+<!-- validate -->
+<script src="{{ asset('front/js/jquery.validate.min.js') }}"></script>
+<!-- counterup -->
+<script src="{{ asset('front/js/jquery.counterup.min.js') }}"></script>
+<!-- imageloaded -->
+<script src="{{ asset('front/js/imagesloaded.pkgd.min.js') }}"></script>
+<!-- isotope -->
+<script src="{{ asset('front/js/isotope.pkgd.min.js') }}"></script>
+<!-- rProgressbar -->
+<script src="{{ asset('front/js/jQuery.rProgressbar.min.js') }}"></script>
+<!-- contact form -->
+<script src="{{ asset('front/js/contact.js') }}"></script>
+<!-- main js -->
+<script src="{{ asset('front/js/script.js') }}"></script>
+<script src="{{ asset('front/js/main.js') }}"></script>
+</body>
+</html>
+

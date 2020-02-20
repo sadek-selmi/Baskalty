@@ -1,0 +1,6 @@
+contacus_homepage:
+    path:     /
+    defaults: { _controller: ContacusBundle:Default:index }
+aboutus:
+    path:     /aboutus
+    defaults: { _controller: ContacusBundle:Default:index }

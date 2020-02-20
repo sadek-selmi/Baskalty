@@ -1,0 +1,73 @@
+{% extends  'layout.html.twig' %}
+{% block content %}
+
+
+ <div class="popover-element padding-top-113 padding-bottom-50 text-center">
+  <div class="container">
+
+   <div class="row popover-area">
+
+    <div class="col-md-9 col-6 element-title">
+     <div class="btn-wrapper desktop-left">
+      <button type="button" class="btn btn-element btn-medium btn-red popover-content" data-toggle="popover"  title="Popover title" data-placement="right">Contact</button>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+{% endblock %}
+
+{% block script %}
+
+
+
+<script>
+        $(document).ready(function(){
+            $('[data-toggle="popover"]').popover(
+                {
+                    template: `
+
+
+{% for e in events %}
+  <table class="popcontent" >
+                                <thead>
+                                <tr style="color:red">
+
+                                    <th>id</th>
+                                    <th>name</th>
+
+
+
+                                </tr>
+
+
+                                </thead>
+
+                                <tbody>
+                                <tr style="color:red">
+
+                                    <td>{{ e.id }}</td>
+
+                                    <td>{{ e.user }}</td>
+
+
+
+
+
+                                </tr>
+
+
+                                </tbody>
+
+                            </table>
+                    `
+                }
+            );
+
+
+        });
+    </script>
+{% endfor %}
+{% endblock %}
+
+

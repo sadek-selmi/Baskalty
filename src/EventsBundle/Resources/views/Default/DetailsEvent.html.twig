@@ -1,0 +1,144 @@
+{% extends  'layout.html.twig' %}
+{% block content %}
+
+    <div class="breadcrumb-style-7">
+        <div class="breadcrumb-inner">
+            <h1 class="page-title">Event Details</h1>
+
+        </div>
+    </div>
+
+
+
+
+
+    <div class="product-details-tab">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="slider-tabfor">
+                        <div class="single-item">
+                            <img src="{{ asset('') }}{{ vich_uploader_asset(events, 'imageFile') }}" alt="thumb">
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-lg-7">
+                    <div class="content-part">
+                        <h1>{{ events.name }}<br> </h1>
+                        <span class="specifications">Theme : {{  events.theme.nom}}</span>
+                        <span class="specifications"> Location : {{ events.location }}     </span>
+                        <span class="specifications">Start Date : {{events.start | date}}</span>
+                        <span class="specifications">End Date : {{events.end  | date}} </span>
+                        <br>
+
+
+
+
+
+
+                        <span class="specifications">Description :  </span>
+
+                        <p class="description">{{ events.description }}</p>
+
+
+
+
+
+
+                         {%if app.user == events.userid  %}
+                        <div class="margin-top-30 margin-bottom-30 btn-wrapper desktop-left">
+                                <a href="{{ path('delete_events',{id:events.id}) }}" class="btn sm-btn"><i class="fa fa-trash"></i> </a>
+                                <a href="{{ path('edit_events',{id:events.id}) }}" class="btn sm-btn black-btn"> <i class="fa fa-edit"></i> </a>
+
+                            {% endif %}
+
+                            <div>
+                                <span style="color:#0b0b0b"><i class="fa fa-comments"></i>comments  {{events.Commenternumber}}</span>
+                                <span style="color:#0b0b0b" ><i class="fa fa-check-square-o"></i> Participer {{  events.Participernumber}}</span>
+                                <span style="color:#0b0b0b"><i class="fa fa-star"></i> Intersted {{  events.Interstednumber}}</span>
+
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="blog-single-content">
+                <div class="container">
+                    <div class="row">
+                        <!-- comment area start -->
+                        <div class="comment-area">
+                            <ul class="comment-list">
+                                {% for comm in comm %}
+                                    <li class="parent">
+                                        <div class="single-comment-wrap">
+                                            <div class="thumb">
+                                                <img alt="comment" src="{{ asset('') }}assets/img/blog/comment1.png">
+                                            </div>
+                                            <div class="content">
+                                                <h4 class="title">{{ comm.user }}</h4>
+                                                <div class="comment-content">
+                                                    <p>{{ comm.content }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </li>
+
+                                {% endfor %}
+                            </ul>
+                            {% if app.user %}
+                                <form method="post" id="formcomment" class="comment-form margin-top-50">
+                                    <div class="form-group">
+                                        <input type="text" name="comment-content" class="form-control"
+                                               placeholder="write comments.....">
+                                    </div>
+                                </form>
+                                {% else %}
+                                    <form  class="comment-form margin-top-50">
+                                        <div class="form-group">
+                                            <input  href="{{ path('fos_user_security_login') }}" type="text" name="comment-content"  class="form-control"
+                                                   placeholder="write comments.....">
+                                        </div>
+                                    </form>
+                            {% endif %}
+                        </div>
+                        <!-- comment area end -->
+                    </div></div></div>                </div>
+    </div>
+    </div>
+    </div> </div>
+    </div>
+
+{% endblock %}

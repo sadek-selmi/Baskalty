@@ -1,0 +1,51 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<div class="signinup-area signup-area">
+    <div class="content col-lg-6 col-md-6">
+        <div class="login-panel">
+            <div class="panel-heading">
+                <a href="{{ path('home') }}"><img src="{{ asset('front/img/logo5.png') }}" alt="logo" style="max-width: 50%;"></a>
+
+            </div>
+            <div class="panel-body">
+                    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+                    <div class="form-group">
+                        {{ form_widget(form.username,{'attr':{'class':'form-control',
+                            'placeholder':'Username'}}) }}
+
+                    </div>
+                    <div class="form-group">
+                        {{ form_widget(form.email,{'attr':{'class':'form-control',
+                            'placeholder':'Email'}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_widget(form.plainPassword.first,{'attr':{'class':'form-control',
+                            'placeholder':'Password'}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_widget(form.plainPassword.second,{'attr':{'class':'form-control','placeholder':'Repeat password'}}) }}
+                    </div>
+                <div class="form-group">
+                    {{ form_widget(form.imageFile,{'attr':{'class':'form-control','placeholder':'Repeat password'}}) }}
+                </div>
+                    <div class="action">
+                        <div class="action-left">
+                            <p>Sign in with <a href="https://www.facebook.com/" class="facebook">Facebook</a></p>
+                            <span class="or">Or</span>
+                            <p>Sign in with <a href="https://mail.google.com/mail/" class="gmail">Gmail</a></p>
+                        </div>
+                        <div class="btn-wrapper desktop-right">
+                            <input type="submit" class="form-control" value="{{ 'registration.submit'|trans }}">
+
+                        </div>
+                    </div>
+                    <p class="bottom">Already Have An Account Please <a class="signup" href="{{ path('fos_user_security_login') }}">Sign In </a> Now</p>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
