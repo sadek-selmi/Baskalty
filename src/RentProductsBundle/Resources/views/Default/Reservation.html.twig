@@ -1,0 +1,76 @@
+
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+    <div class="breadcrumb-style-2">
+        <div class="breadcrumb-inner">
+            <h1 class="page-title color-black">Reservation form</h1>
+        </div>
+    </div>
+    {{form_start(form)}}
+    <div class="form-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 d-flex justify-content-center form-title">
+                    <h3>rent of this product will cost you {{ res.price }}</h3>
+                </div>
+                <div class="col-lg-8 offset-lg-2 d-flex justify-content-center">
+                    <div class="form-group">
+
+                        <div class="form-field margin-top-30">
+                            {{ form_widget(form.Quantity,{'attr':{'class':'input-form',
+                                'placeholder':'quantity'}})}}
+                        </div>
+
+                        <div class="form-field margin-top-30">
+                            {{ form_errors(form) }}
+                            {{ form_widget(form.document,{'attr':{'class':'input-form',
+                                'placeholder':'quantity'}})}}
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-8 offset-lg-2 d-flex justify-content-center">
+
+                </div>
+                <div class="col-lg-9 offset-lg-2 margin-top-50">
+                    <div class="controler-wrapper">
+                        <div class="col-lg-8 offset-lg-3 padding-bottom-10">
+                            <div class="controler-wrapper" style="margin-right: 50px">
+                            <button type="submit"
+                                    class="btn btn-red">
+                                update Quantity !!
+                            </button>
+                            <a href="{{ path('confirm',{id:res.id}) }}"
+                                    class="btn btn-red">
+                                confirm order !!
+                            </a>
+                            <a href="{{ path('reject',{id:res.id}) }}"
+                                    class="btn btn-red">
+                               cancel order !!
+                            </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 offset-lg-2 margin-top-50">
+                            <div class="controler-wrapper">
+                                <div class="active-controler">02</div>
+                                <div class="progressbar">
+                                    <span class="home-slider-progress"></span>
+                                    <span class="home-slider-progress-active"  style="width: 250px"></span>
+                                </div>
+                                <div class="total-controler">03</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ form_end(form) }}
+
+
+
+{% endblock %}
+

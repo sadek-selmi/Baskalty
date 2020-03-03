@@ -1,0 +1,21 @@
+forum_homepage:
+    path:     /
+    defaults: { _controller: PostBundle:Default:affiche }
+addpost :
+    path:     /addpost
+    defaults: { _controller: PostBundle:Default:addpost }
+affiche :
+    path:     /affiche
+    defaults: { _controller: PostBundle:Default:affiche }
+details:
+        path:     /details/{id}
+        defaults: { _controller: PostBundle:Default:details }
+edit:
+        path:     /edit/{id}
+        defaults: { _controller: PostBundle:Default:edit }
+delete :
+    path:     /delete/{id}
+    defaults: { _controller: PostBundle:Default:delete }
+likeBlog :
+    path:     /likeBlog/{id}
+    defaults: { _controller: PostBundle:Default:likeBlog }

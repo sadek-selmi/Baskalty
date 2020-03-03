@@ -1,0 +1,51 @@
+{% extends  'layout.html.twig' %}
+{% block content %}
+    <div class="table-content margin-top-97 margin-bottom-85">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="element-title text-center margin-bottom-50">
+                        <h3><strong>P</strong>articipant <strong>L</strong>ist</h3>
+                        <a href="{{ path('erreur') }}">zz</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <table class="table color-black table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">Number</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">ID</th>
+                    </tr>
+                    </thead>
+
+
+                    {% for e in parti %}
+                        {% if idpar == e.eventtP.id %}
+                    <tbody>
+                    <tr>
+                        <td><i class="fa fa-check"></i> {{e.id}}</td>
+                        <td>{{ e.user }}</td>
+                        <td>{{ e.eventtP.id }}</td>
+
+                        <td></td>
+                    </tr>
+
+
+                    </tbody>
+                        {% endif  %}
+                     {% endfor %}
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+{% endblock %}
+

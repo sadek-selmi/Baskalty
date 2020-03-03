@@ -1,0 +1,43 @@
+All_products:
+    path:     /readProducts
+    defaults: { _controller: SellProductsBundle:product:read }
+shop_addtopanier:
+    path:     /panier/{id}
+    defaults: { _controller: SellProductsBundle:panier:addToPanier }
+checkout:
+    path:     /checkout
+    defaults: { _controller: SellProductsBundle:panier:checkout }
+proceedCheckout:
+    path:     /checkout/proceed/{total}
+    defaults: {_controller: SellProductsBundle:panier:proceedCheckout}
+deletech:
+    path:     /delete/{id}
+    defaults: { _controller: SellProductsBundle:panier:deletech }
+orders:
+    path:     /orders/{total}
+    defaults: { _controller: SellProductsBundle:panier:order}
+myorder:
+    path:     /myorder/
+    defaults: { _controller: SellProductsBundle:Default:myorder }
+addProduct:
+    path:     /addproduct
+    defaults: { _controller: SellProductsBundle:product:add}
+
+deleteProduct:
+    path:     /deleteproduct/{id}
+    defaults : { _controller : SellProductsBundle:product:delete}
+
+details_products:
+    path:    /productsDetails/{id}
+    defaults: {_controller : SellProductsBundle:product:details}
+
+updateProduct:
+    path:    /updateproduct/{id}
+    defaults : { _controller: SellProductsBundle:product:update}
+ajax_search:
+    path:    /search
+    defaults: { _controller: SellProductsBundle:product:search }
+
+formulairV:
+    path:     /formulairV/
+    defaults: { _controller: SellProductsBundle:Default:formulaireV}

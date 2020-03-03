@@ -1,0 +1,87 @@
+{% extends "Admin/layout.html.twig" %}
+{% block content %}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <ul class="breadcrumb breadcrumb-style ">
+                        <li class="breadcrumb-item">
+                            <h4 class="page-title">Contact List</h4>
+                        </li>
+                        <li class="breadcrumb-item bcrumb-1">
+                            <a href="../../index.html">
+                                <i class="fas fa-home"></i> Home</a>
+                        </li>
+                        <li class="breadcrumb-item bcrumb-2">
+                            <a href="#" onClick="return false;">Contact</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+                <div class="card">
+                    <div class="body">
+                        <div class="table-responsive">
+                            <table class="table table-hover js-basic-example contact_list">
+                                <thead>
+                                <tr>
+                                    <th class="center">#</th>
+                                    <th class="center">Name</th>
+                                    <th class="center">Phone</th>
+                                    <th class="center">Mail</th>
+
+                                    <th class="center">Subject</th>
+
+
+                                    <th class="center">Actions</th>
+                                </tr>
+                                </thead>
+                                {% for e in contact %}
+
+                                    <tbody>
+                                <tr>
+                                    <td class="tbl-checkbox">
+                                        <label>
+                                            <input type="checkbox" />
+                                            <span></span>
+                                        </label>
+                                    </td>
+
+                                    <td class="center">{{ e.name }}</td>
+                                    <td class="center">
+                                                <span class="phone">
+                                                    <i class="material-icons">phone</i>{{ e.phone }}</span>
+                                    </td>
+                                    <td class="center">
+                                        {{ e.email }}
+                                    </td>
+                                    <td class="center">
+                                        {{ e.subject }}
+                                    </td>
+                                    <td class="center">
+                                  <a href="{{ path('detailscontact_homepage',{id:e.id}) }}"><i class="fa fa-sign-in-alt "></i></a>
+                                        <a   href="{{ path('Delete_homepage',{id:e.id}) }}">     <i class="material-icons">delete</i>  </a>
+
+                                    </td>
+                                </tr>
+
+
+                                </tbody>
+                                {% endfor %}
+
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div></section>
+{% endblock %}

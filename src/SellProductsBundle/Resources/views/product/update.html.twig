@@ -1,0 +1,50 @@
+{% extends  'layout.html.twig' %}
+{% block content %}
+    <div class="breadcrumb-style-2">
+        <div class="breadcrumb-inner">
+            <h1 class="page-title color-black">Update Product</h1>
+        </div>
+    </div>
+    {{form_start(form)}}
+    <div class="form-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 d-flex justify-content-center form-title">
+                    <h3>Fill out data</h3>
+                </div>
+                <div class="col-lg-8 offset-lg-2 d-flex justify-content-center">
+                    <div class="form-group">
+
+                            <div class="form-field margin-top-30">
+                                {{ form_widget(form.name,{ 'attr': {'class': "input-form",
+                                    'placeholder': 'Product Name'} }) }}
+                            </div>
+
+                            <div class="form-field margin-top-30">
+                                {{ form_widget(form.reference,{'attr':{'class':"input-form",
+                                    'placeholder':'Reference'}}) }}
+                            </div>
+
+                            <div class="form-field margin-top-30">
+                                {{ form_widget(form.price,{'attr':{'class':'input-form',
+                                    'placeholder':'Price'}})}}
+                            </div>
+                            <div class="form-field margin-top-30">
+                                {{ form_widget(form.description,{'attr':{'class':'input-form',
+                                    'placeholder':'Description'}})}}
+                            </div>
+                            <div class="form-field margin-top-30">
+                                {{ form_widget(form.imageFile,{'attr':{'class':'input-form'}})}}
+                            </div>
+                        <div class="form-field margin-top-30">
+                            {{ form_widget(form.Submit,{'attr':{'class':'btn btn-element btn-medium btn-red'}})}}
+                        </div>
+                            {{ form_end(form) }}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

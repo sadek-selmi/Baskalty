@@ -1,0 +1,47 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+    <!-- By Cyrine -->
+
+    <div class="breadcrumb-style-7">
+        <div class="breadcrumb-inner">
+            <h1 class="page-title">Posts</h1>
+            <ul class="page-list">
+                <li><a href="#">ADD YOUR POST</a></li>
+            </ul>
+        </div>
+    </div>
+    {{ form_start(form) }}
+    <div class="form-area">
+        <div class="container">
+            <div class="row">
+
+
+                <div class="col-lg-8 offset-lg-2 d-flex justify-content-center">
+                    <div class="form-group">
+                        <form action="#" class="form">
+                            <div class="form-field margin-top-30">
+                                {{ form_widget(form.image,{'attr': {'class': 'input-form', }}) }}
+                            </div>
+
+                            <div class="form-field margin-top-30">
+                                {{ form_widget(form.contenu,{'attr':{'class':'input-form',
+                                    'placeholder':'Contenu'}})}}
+                            </div>
+                            <div class="form-field margin-top-30">
+                               <p STYLE="color: #0b0b0b"> {{ "now"|date("m/d/Y") }} </p>
+                            </div>
+                            <button class="btn btn-element btn-normal btn-red" type="submit">Submit</button>
+                            <div class="form-field margin-top-30">
+                                {{ form_end(form) }}
+
+                            </div>
+                            <br>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

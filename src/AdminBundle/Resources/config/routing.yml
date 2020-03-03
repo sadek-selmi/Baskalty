@@ -1,0 +1,68 @@
+admin_homepage:
+    path:     /
+    defaults: { _controller: AdminBundle:Default:index }
+admin_changeRoleAssociation:
+    path:     /makeAssociation/{id}
+    defaults: { _controller: AdminBundle:Default:makeASSOCIATION }
+admin_changeRoleVendre:
+    path:     /makeVendre/{id}
+    defaults: { _controller: AdminBundle:Default:makeVendre }
+admin_changeRoleL:
+    path:     /makeLocateur/{id}
+    defaults: { _controller: AdminBundle:Default:makeL }
+user_homepage:
+    path:     /user
+    defaults: { _controller: AdminBundle:Default:AfficherUser}
+contact_homepage:
+    path:     /contact
+    defaults: { _controller: AdminBundle:Default:contact}
+Eventapprov_homepage:
+    path:     /Events
+    defaults: { _controller: AdminBundle:Default:EventUser}
+Delete_homepage:
+    path:     /Delete/{id}
+    defaults: { _controller: AdminBundle:Default:delete}
+detailscontact_homepage:
+    path:     /contact/{id}
+    defaults: { _controller: AdminBundle:Default:detail}
+Deletemessage_homepage:
+    path:     /Deletemessage/{id}
+    defaults: { _controller: AdminBundle:Default:delet}
+DeleteFORM_homepage:
+    path:     /Deletefor/{id}
+    defaults: { _controller: AdminBundle:Default:deletefor}
+DeleteFORMV_homepage:
+    path:     /Deletefor/{id}
+    defaults: { _controller: AdminBundle:Default:deleteforV}
+DeleteFORML_homepage:
+    path:     /Deletefor/{id}
+    defaults: { _controller: AdminBundle:Default:deleteforL}
+admin_changeRoleuser:
+    path:     /makeuser/{id}
+    defaults: { _controller: AdminBundle:Default:makesimple }
+
+Deletemech_homepage:
+    path:     /Deletemech/{id}
+    defaults: { _controller: AdminBundle:Default:deletemech}
+mechuser_homepage:
+    path:     /Mechuser
+    defaults: { _controller: AdminBundle:Default:mechUser}
+mechuserV_homepage:
+    path:     /MechuserV
+    defaults: { _controller: AdminBundle:Default:mechUserV}
+mechuserL_homepage:
+    path:     /MechuserL
+    defaults: { _controller: AdminBundle:Default:mechUserL}
+actif:
+    path:     /actif/{id}
+    defaults: { _controller: AdminBundle:Default:actif}
+
+Postapprov_homepage:
+    path:     /post
+    defaults: { _controller: AdminBundle:Default:validepost}
+accept:
+    path:     /accept/{id}
+    defaults: { _controller: AdminBundle:Default:accept}
+deleteblog:
+    path:     /deleteblog/{id}
+    defaults: { _controller: AdminBundle:Default:deleteblog }

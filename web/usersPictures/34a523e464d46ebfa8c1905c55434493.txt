@@ -1,0 +1,28 @@
+HTTrack3.49-2+htsswf+htsjava launched on Wed, 26 Feb 2020 20:39:52 at https://codingeek.net/html/billatrail/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://codingeek.net/html/billatrail/ -O1 "C:\Users\selmi\OneDrive\Bureau\ERR" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+20:41:32	Error: 	"Not Found" (404) at link https://codingeek.net/html/billatrail/assets/fonts/slick.eot (from https://codingeek.net/html/billatrail/assets/css/slick-theme.css)
+20:41:33	Error: 	"Not Found" (404) at link https://codingeek.net/html/billatrail/assets/fonts/slick.eot? (from https://codingeek.net/html/billatrail/assets/css/slick-theme.css)
+20:41:33	Error: 	"Not Found" (404) at link https://codingeek.net/html/billatrail/assets/fonts/slick.svg (from https://codingeek.net/html/billatrail/assets/css/slick-theme.css)
+20:41:33	Error: 	"Not Found" (404) at link https://codingeek.net/html/billatrail/assets/css/owl.video.play.png (from https://codingeek.net/html/billatrail/assets/css/owl.carousel.min.css)
+20:41:34	Error: 	"Not Found" (404) at link https://codingeek.net/html/billatrail/assets/css/Flaticon.eot (from https://codingeek.net/html/billatrail/assets/css/flaticon.css)
+20:41:34	Error: 	"Not Found" (404) at link https://codingeek.net/html/billatrail/assets/css/Flaticon.eot? (from https://codingeek.net/html/billatrail/assets/css/flaticon.css)
+20:41:34	Error: 	"Not Found" (404) at link https://codingeek.net/html/billatrail/assets/css/Flaticon.woff2 (from https://codingeek.net/html/billatrail/assets/css/flaticon.css)
+20:41:35	Error: 	"Not Found" (404) at link https://codingeek.net/html/billatrail/assets/css/Flaticon.woff (from https://codingeek.net/html/billatrail/assets/css/flaticon.css)
+20:41:35	Error: 	"Not Found" (404) at link https://codingeek.net/html/billatrail/assets/css/Flaticon.ttf (from https://codingeek.net/html/billatrail/assets/css/flaticon.css)
+20:41:35	Error: 	"Not Found" (404) at link https://codingeek.net/html/billatrail/assets/css/Flaticon.svg (from https://codingeek.net/html/billatrail/assets/css/flaticon.css)
+20:41:36	Error: 	"Not Found" (404) at link https://codingeek.net/html/billatrail/assets/img/breadcrumb/typography.png (from https://codingeek.net/html/billatrail/assets/css/style.css)
+20:41:36	Error: 	"Not Found" (404) at link https://codingeek.net/html/billatrail/assets/img/blog-bg.png (from https://codingeek.net/html/billatrail/assets/css/style.css)
+20:41:36	Error: 	"Not Found" (404) at link https://codingeek.net/html/billatrail/assets/img/slide-three.jpg (from https://codingeek.net/html/billatrail/assets/css/style.css)
+20:41:36	Error: 	"Not Found" (404) at link https://codingeek.net/html/billatrail/assets/img/popup-info.png (from https://codingeek.net/html/billatrail/assets/css/style.css)
+20:41:37	Error: 	"Not Found" (404) at link https://codingeek.net/html/billatrail/popper.js (from https://codingeek.net/html/billatrail/assets/js/bootstrap.min.js)
+20:41:37	Error: 	"Not Found" (404) at link https://codingeek.net/html/billatrail/Version/ (from https://codingeek.net/html/billatrail/assets/js/swiper.min.js)
+20:41:37	Error: 	"Not Found" (404) at link https://codingeek.net/html/billatrail/version/ (from https://codingeek.net/html/billatrail/assets/js/swiper.min.js)
+
+HTTrack Website Copier/3.49-2 mirror complete in 1 minutes 46 seconds : 262 links scanned, 244 files written (21836556 bytes overall) [20026180 bytes received at 188926 bytes/sec], 5300571 bytes transferred using HTTP compression in 97 files, ratio 26%, 37.4 requests per connection
+(17 errors, 0 warnings, 0 messages)

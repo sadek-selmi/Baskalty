@@ -1,0 +1,110 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+
+
+    {{ form_start(form) }}
+    <div class="form-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 d-flex justify-content-center form-title">
+                    <h3>Add your data </h3>
+                </div>
+                <div class="col-lg-8 offset-lg-2 d-flex justify-content-center">
+                    <div class="form-group">
+                        <form action="#" class="form">
+                            <div class="form-field margin-top-30">
+                                {{ form_widget(form.nom,{'attr':{'class':'input-form','placeholder':'First Name'}}) }}
+                            </div>
+
+                            <div class="form-field margin-top-30">
+                                {{ form_widget(form.prenom,{'attr':{'class':'input-form','placeholder':'Last Name'}}) }}
+                                <div class="invalid-feedback">
+                                    One or more field is required.
+                                </div>
+                                <div class="invalid-feedback feedback-icon">
+                                    <i class="fa fa-exclamation-triangle"></i>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-8 offset-lg-2 d-flex justify-content-center">
+                    <div class="form-group">
+
+                        <div class="form-field margin-top-30">
+                            {{ form_widget(form.mail,{'attr':{'class':'input-form','placeholder':'Mail'}}) }}
+                        </div>
+
+                        <div class="form-field margin-top-30">
+                            {{ form_widget(form.numTel,{'attr':{'class':'input-form','placeholder':'Phone Number'}}) }}
+                        </div>
+                        <div class="form-field margin-top-30">
+                            {{ form_widget(form.prix,{'attr':{'class':'input-form','placeholder':'Price'}}) }}
+                        </div>
+
+                        <div class="form-field margin-top-30">
+                            {{ form_widget(form.description,{'attr':{'class':'input-form','placeholder':'Tell Me About You'}}) }}
+                        </div>
+                        <div class="form-field margin-top-30">
+                            <h3>Experience</h3>
+                            {{ form_widget(form.experience) }}
+                        </div>
+                        {{ form_widget(form.imageFile,{'attr':{'class':'input-form', 'placeholder':'Image'}})}}
+
+                    </div>
+                </div>
+
+                <div class="col-lg-8 offset-lg-2 d-flex justify-content-center form-title margin-top-77">
+                    <h3>Select Régien</h3>
+                </div>
+
+                <div class="col-lg-8 offset-lg-2 d-flex justify-content-center">
+                    <div class="form-group">
+
+                        <div class="form-field">
+                            {{ form_widget(form.region,{'attr':{'class':'input-form'}})}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 offset-lg-2 d-flex justify-content-center">
+                    <div class="form-group">
+
+                        <div class="form-field">
+                            {{ form_widget(form.city,{'attr':{'class':'input-form'}})}}
+                        </div>
+
+                    </div>
+                </div>
+                </form>
+                <div class="col-lg-8 offset-lg-2 d-flex justify-content-center form-title margin-top-95">
+                    <h3>Deplacemet a domicile</h3>
+                </div>
+
+                <div class="col-lg-8 offset-lg-2 margin-top-150">
+                    <div class="form-group">
+
+                        <div class="form-field d-flex justify-content-around">
+                            {{ form_widget(form.adomicile) }}
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-8 offset-lg-2 d-flex justify-content-center form-title margin-top-95">
+                    <button class="button-explore" type="submit">Envoyer</button>
+                </div>
+
+                {{ form_end(form) }}
+
+            </div>
+        </div>
+
+    </div>
+    </div>
+    </div>
+
+    <!-- form end -->
+
+
+
+{% endblock %}

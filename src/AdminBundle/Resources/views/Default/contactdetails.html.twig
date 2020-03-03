@@ -1,0 +1,68 @@
+{% extends "Admin/layout.html.twig" %}
+{% block content %}
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <ul class="breadcrumb breadcrumb-style ">
+                            <li class="breadcrumb-item">
+                                <h4 class="page-title">View Mail</h4>
+                            </li>
+                            <li class="breadcrumb-item bcrumb-1">
+                                <a href="../../index.html">
+                                    <i class="fas fa-home"></i> Home</a>
+                            </li>
+                            <li class="breadcrumb-item bcrumb-2">
+                                <a href="#" onClick="return false;">Email</a>
+                            </li>
+                            <li class="breadcrumb-item active">View Mail</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+                    <div class="card">
+                        <div class="boxs mail_listing">
+                            <div class="inbox-body no-pad">
+                                <section class="mail-list">
+                                    <div class="mail-sender">
+                                        <div class="mail-heading">
+                                            <h4 class="vew-mail-header">
+                                                <b>{{ contact.subject }}</b>
+                                            </h4>
+                                        </div>
+                                        <hr>
+                                        <div class="media">
+                                            <a href="#" class="table-img m-r-15">
+                                                <img alt="" src="../../assets/images/user/user2.jpg">
+                                            </a>
+                                            <div class="media-body">
+                                                <span class="date pull-right">{{ contact.date |date("m/d/Y H:s") }}</span>
+                                                <h4 class="text-primary">{{contact.name}}</h4>
+                                                <small class="text-muted">From: {{ contact.email }}</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="view-mail">
+                                        <p>jeueue
+                                        </p>
+                                    </div>
+
+                                    <div class="replyBox m-t-20">
+                                        <p class="p-b-20">click here to
+                                            <a href="#">Reply</a>
+                                        </p>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

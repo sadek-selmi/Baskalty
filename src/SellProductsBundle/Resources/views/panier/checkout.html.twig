@@ -1,0 +1,214 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <style>
+        .image_style {
+            border: 1px solid var(--heading-color);
+            width: 100px;
+            height: 100px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .cart_total {
+            background-color: #e3051a;
+            color: #fff;
+            font-size: 26px;
+            padding: 23px 192px 22px;
+            font-family: var(--body-font);
+            text-transform: capitalize;
+        }
+
+        .padding-ul {
+            padding: 37px 0 35px;
+            list-style-type: none;
+
+        }
+
+        .padding-li {
+            font-size: 16px;
+            padding-bottom: 22px;
+            text-transform: capitalize;
+        }
+
+        .span-right {
+            float: right;
+        }
+
+        .order-total {
+            border-bottom: 1px solid #ebebeb;
+            margin-bottom: 18px;
+            padding-bottom: 32px;
+        }
+
+        .shopping-card {
+            background: #FCFCFC;
+            padding: 34px 0px 0px;
+        }
+    </style>
+    <div class="shopping-card" style="text-decoration-color: #0b0b0b">
+    <div class="container">
+    <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="table-content table-responsive">
+        {% if panier | length > 0 %}
+        <table>
+            <thead>
+            <tr class="item-title" style="border-bottom: 3px solid #e1e1e1;">
+                <th style="color : #0b0b0b">Products</th>
+                <th style="color : #0b0b0b">Products Name</th>
+                <th style="color : #0b0b0b">Price</th>
+                <th style="color : #0b0b0b">Quantity</th>
+                <th style="color : #0b0b0b">Total</th>
+                <th style="color : #0b0b0b">Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in panier %}
+                <tr class="content">
+                    <td>
+                        <img class="image_style" src=" {{ asset('') }}{{ vich_uploader_asset(item.ProduitP, 'imageFile') }}">
+                    </td>
+                    <td>
+                        <a href="#" style="color: black;">{{ item.ProduitP.name }}</a>
+                    </td>
+                    <td class="product-price"><span class="amount" style="color : #0b0b0b">${{ item.ProduitP.price }}</span></td>
+                    <td class="product-quantity">
+                        <div style="color:black;">
+                            {{ item.quantite}}
+                        </div>
+                    </td>
+                    <td class="product-subtotal" style="color : #0b0b0b">${{item.ProduitP.price * item.quantite}}</td>
+                    <td class="product-cart-icon product-subtotal">
+                        <a href="{{ path('deletech',{'id':item.id}) }}">
+                            <i class="fa fa-trash" style="font-size:30px"></i></a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="btn-wrapper">
+                <a href="{{ path('All_products') }}" class="btn btn-element btn-medium btn-red">
+                    Continue Shopping
+                    <i class="fa fa-long-arrow-right"></i>
+                </a>
+            </div>
+            <div class="btn-wrapper">
+                <div class="text-right">
+                    <button class="btn btn-element btn-normal btn-gray">
+                        <span>Update</span>
+                    </button>
+                    <a href="{{ path('proceedCheckout',{total:total}) }}" class="btn btn-element btn-normal btn-red"> <span>Checkout</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div>
+            <h3 class="cart_total " style="color : #0b0b0b">cart total</h3>
+            <ul class="padding-ul">
+                <li class="padding-li">
+                    <span style="color : #0b0b0b">sub total</span>
+                    <span class="span-right" style="color : #0b0b0b">${{ total }}</span>
+                </li>
+                </li>
+
+                <li class="padding-li">
+                    <span style="color : #0b0b0b" >order total</span>
+                    <span class="span-right" style="color : #0b0b0b">${{ total }}</span>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    </div>
+    {% else %}
+
+    <div class="shopping-card">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="table-content table-responsive">
+                        <table>
+                            <thead>
+                            <tr class="item-title" style="border-bottom: 3px solid #e1e1e1;">
+                                <th style="color : #0b0b0b">Products</th>
+                                <th style="color : #0b0b0b">Products Name</th>
+                                <th style="color : #0b0b0b">Price</th>
+                                <th style="color : #0b0b0b">Quantity</th>
+                                <th style="color : #0b0b0b">Total</th>
+                                <th style="color : #0b0b0b">Delete</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="content">
+                                <td>
+                                    <h3 class="item-title">Panier Empty !</h3>
+                                </td>
+                                <td>
+                                    <a href="#"></a>
+                                </td>
+                                <td class="product-price"><span class="amount">$</span></td>
+                                <td class="product-quantity">
+                                    <div class="quantity-range">
+
+                                    </div>
+                                </td>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="btn-wrapper">
+                        <a href="{{ path('All_products') }}" class="btn btn-element btn-medium btn-red">
+                            Continue Shopping
+                            <i class="fa fa-long-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="btn-wrapper">
+                        <div class="text-right">
+
+                            <a href="{{ path('proceedCheckout',{total:total}) }} " class="tm-button tm-button-dark"> <span>Proceed To Checkout</span></a>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <h3 class="cart_total " style="color : #0b0b0b">cart total</h3>
+                    <ul class="padding-ul">
+                        <li class="padding-li">
+                            <span style="color : #0b0b0b">sub total</span>
+                            <span class="span-right" style="color : #0b0b0b">${{total}}</span>
+                        </li>
+                        </li>
+
+                        <li class="padding-li">
+                            <span style="color : #0b0b0b" >order total</span>
+                            <span class="span-right" style="color : #0b0b0b">${{ total }}</span>
+                        </li>
+                    </ul>
+                    <div class="btn-wrapper">
+                        <a href="{{ path('payment') }}" class="btn btn-element btn-normal btn-red">Payment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+{% endblock %}

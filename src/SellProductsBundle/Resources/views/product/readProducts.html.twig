@@ -1,0 +1,128 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+    <div class="shop-banner padding-bottom-100 padding-top-40">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-4 col-md-6">
+                    <h1>Choose the Best one That’s right for you.</h1>
+                </div>
+                <div class="col-xl-4 col-md-6 position-relative">
+                    <div class="middle-left">
+                        <img src="{{ asset('front/img/shop/banner2.png')}}" alt="">
+                    </div>
+                    <div class="middle-right">
+                        <img src="{{ asset('front/img/shop/banner2.png')}}" alt="">
+                    </div>
+                </div>
+                <div class="col-xl-4 d-none d-xl-block position-relative">
+                    <div class="right-part">
+                        <img class="img1" src="{{ asset('front/img/shop/banner1.png')}}" alt="">
+                        <img class="img2" src="{{ asset('front/img/shop/banner3.png')}}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<br>
+<div class="container">
+    <input type="text" id="rechercher" placeholder="Something to search">
+    <span><i class="fa fa-search"></i></span>
+</div>
+
+<ul class="nav" id="side-menu">
+    <li>
+        <a href="#"> Products <span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level" id="productsNav">
+        </ul>
+    </li>
+</ul>
+    <br><br><br><br>
+
+    <script type="text/javascript" src="{{ asset('front/js/jquery-2.2.4.min.js') }}"></script><script type="text/javascript">
+    $(document).ready(function() {
+        var searchRequest = null;
+        $("#rechercher").keyup(function() {
+            var minlength = 1;
+            var that = this;
+            var value = $(this).val();
+            var entitySelector = $("#productsNav").html('');
+            if (value.length >= minlength ) {
+                if (searchRequest != null)
+                    searchRequest.abort();
+                searchRequest = $.ajax({
+                    type: "GET",
+                    url: "{{ path('ajax_search') }}",
+                    data: {
+                        'q' : value
+                    },
+                    dataType: "text",
+                    success: function(msg){
+                        //we need to check if the value is the same
+                        if (value===$(that).val()) {
+                            var result = JSON.parse(msg);
+                            $.each(result, function(key, arr) {
+                                $.each(arr, function(id, value) {
+                                    if (key === 'product') {
+                                        if (id !== 'error') {
+                                            console.log(value[1]);
+                                            entitySelector.append('<li><b>'+value[1]+'</b><a href="/Sell/productsDetails/'+id+'">'+'<img src="/uploads/'+value[0]+'" style="width: 50px; height: 50px"/>'+'</a></li>');
+                                        }
+                                    }
+                                });
+                            });
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+
+<div class="shop-tab">
+    <div class="tab-content">
+        <div class="container">
+            <div class="tab-content-area">
+                <div class="tab-one-content inactive active">
+                    <div class="row">
+                        {% for p in products %}
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                                <div class="shop-item">
+                                    <h1 class="top-text">{{ p.name }}<span>{{ p.reference }}</span></h1>
+                                    <ul class="cart-menu">
+                                        </li>
+                                        <li style="color : #0b0b0b"><strong>{{ p.price }}$</strong></li>
+
+                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                        <li><a href="{{ path('shop_addtopanier',{'id': p.id}) }}"><i class="fa fa-shopping-cart"></i></a>
+                                        </li>
+                                    </ul>
+                                    <a href="{{ path('details_products',{'id':p.id}) }}">
+                                        <img src="{{ asset('') }}{{ vich_uploader_asset(p, 'imageFile') }}">
+                                    </a>
+                                    <span class="bottom-text">{{ p.description }}</span>
+                                   {% if app.user == p.user %}
+                                    <span class="bottom-text" style="margin-left: 194px;font-size:30px;">
+                                             <a href="{{ path('updateProduct',{'id':p.id}) }}">
+                                                <i class="fa fa-pencil-square-o" style=""></i>
+                                            </a>
+                                            <a href="{{ path('deleteProduct',{'id':p.id }) }}">
+                                            <i class="fa fa-trash"></i>
+                                            </a>
+                                    </span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="navigation ">
+        {{ knp_pagination_render(products) }}
+    </div>
+</div>
+    {% endblock %}

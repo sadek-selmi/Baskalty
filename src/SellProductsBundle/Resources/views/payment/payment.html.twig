@@ -1,0 +1,196 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="payment-area padding-bottom-50">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-8 col-lg-7">
+                    <div class="row">
+                        <div class="payment-content">
+                            <div class="title">
+                                <h2>Choose Your Payment options</h2>
+                            </div>
+                            <div class="payment-tab">
+                                <ul class="nav nav-pills">
+                                    <li class="active">
+                                        <a data-toggle="pill" href="#home" class="active">
+                                            <h2 class="tab-menu-title">Pay With Paypal</h2>
+                                            <div class="img">
+                                                <img src="assets/img/payment/paypal.png" alt="">
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="pill" href="#menu1">
+                                            <h2 class="tab-menu-title">Pay With Master Card</h2>
+                                            <div class="img">
+                                                <img src="assets/img/payment/mastercard.png" alt="">
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content">
+                                    <div id="home" class="tab-pane fade in active show">
+                                        <div class="all-tab-content">
+                                            <h2>Pay by Master Card</h2>
+                                            <div class="card-option">
+                                                <img src="assets/img/payment/card-logo.png" alt="">
+                                                <div class="form-group">
+                                                    <form action="#" class="form">
+                                                        <div class="form-field margin-top-20">
+                                                            <label for="number">Card Number</label>
+                                                            <input id="number" type="number" placeholder="0000 - 0000 - 0000 - 0000" class="input-form">
+                                                        </div>
+                                                        <div class="form-field width-30 margin-top-20 margin-bottom-30 position-form">
+                                                            <label for="cvc">CVC</label>
+                                                            <input id="cvc" type="password" placeholder="***" class="input-form">
+                                                        </div>
+                                                        <div class="form-field width-30 margin-top-20 margin-bottom-10">
+                                                            <label for="Month">Month</label>
+                                                            <input id="Month" type="text" placeholder="0 0" class="input-form">
+                                                        </div>
+                                                        <div class="form-field width-30 margin-top-20 margin-bottom-10">
+                                                            <label for="Year">Year</label>
+                                                            <input id="Year" type="text" placeholder="0 0" class="input-form">
+                                                        </div>
+                                                        <div class="form-field width-30 margin-top-20 margin-bottom-10">
+                                                            <label for="n">Name</label>
+                                                            <input id="n" type="text" placeholder="Name" class="input-form">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                            <div class="btn-wrapper desktop-left">
+                                                <a href="#" class="btn sm-btn confirm-btn">Confirm Payment</a>
+                                            </div>
+
+                                            <div class="privacy-policy">
+                                                <h2>Privacy Policy</h2>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet semper augue. Maecenas gravida tortor sit amet enim venenatis tristique. Nulla vehicula porta tortor non maximus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam eu viverra augue. Donec aliquet dignissim augue, nec posuere augue pharetra sed. Pellentesque consequat ornare ornare. Aliquam erat volutpat.<br><br> Nullam posuere porttitor lectus, ut efficitur nisi tincidunt posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet semper augue. Maecenas gravida tortor sit amet enim venenatis tristique. Nulla vehicula porta tortor non maximus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam eu viverra augue. Donec aliquet dignissim augue, nec posuere augue pharetra sed. Pellentesque consequat ornare ornare. Aliquam erat volutpat. Nullam posuere porttitor lectus, ut efficitur nisi tincidunt posuere.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="menu1" class="tab-pane fade">
+                                        <div class="all-tab-content">
+                                            <h2>Pay by Master Card</h2>
+                                            <div class="card-option">
+                                                <img src="assets/img/payment/card-logo.png" alt="">
+                                                <div class="form-group">
+                                                    <form action="#" class="form">
+                                                        <div class="form-field margin-top-20">
+                                                            <label for="number1">Card Number</label>
+                                                            <input id="number1" type="number" placeholder="0000 - 0000 - 0000 - 0000" class="input-form">
+                                                        </div>
+                                                        <div class="form-field width-30 margin-top-20 margin-bottom-30 position-form">
+                                                            <label for="cvc1">CVC</label>
+                                                            <input id="cvc1" type="password" placeholder="***" class="input-form">
+                                                        </div>
+                                                        <div class="form-field width-30 margin-top-20 margin-bottom-10">
+                                                            <label for="Month1">Month</label>
+                                                            <input id="Month1" type="text" placeholder="0 0" class="input-form">
+                                                        </div>
+                                                        <div class="form-field width-30 margin-top-20 margin-bottom-10">
+                                                            <label for="Year1">Year</label>
+                                                            <input id="Year1" type="text" placeholder="0 0" class="input-form">
+                                                        </div>
+                                                        <div class="form-field width-30 margin-top-20 margin-bottom-10">
+                                                            <label for="n1">Name</label>
+                                                            <input id="n1" type="text" placeholder="Name" class="input-form">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                            <div class="btn-wrapper desktop-left">
+                                                <a href="#" class="btn sm-btn confirm-btn">Confirm Payment</a>
+                                            </div>
+
+                                            <div class="privacy-policy">
+                                                <h2>Privacy Policy</h2>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet semper augue. Maecenas gravida tortor sit amet enim venenatis tristique. Nulla vehicula porta tortor non maximus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam eu viverra augue. Donec aliquet dignissim augue, nec posuere augue pharetra sed. Pellentesque consequat ornare ornare. Aliquam erat volutpat.<br><br> Nullam posuere porttitor lectus, ut efficitur nisi tincidunt posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet semper augue. Maecenas gravida tortor sit amet enim venenatis tristique. Nulla vehicula porta tortor non maximus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam eu viverra augue. Donec aliquet dignissim augue, nec posuere augue pharetra sed. Pellentesque consequat ornare ornare. Aliquam erat volutpat. Nullam posuere porttitor lectus, ut efficitur nisi tincidunt posuere.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-5">
+                    <div class="invoice">
+                        <div class="invoice-top">
+                            <h1>Summary</h1>
+                            <h2>Invoice # 428836 Summary</h2>
+                        </div>
+                        <div class="invoice-bottom">
+                            <h2 class="date">Estimated Delivery : 25 - 28 July</h2>
+                            <p class="address">Delivery: House 292 (First Floor), Road 19/B, New DOHS, Mohakhali, Dhaka.</p>
+                            <p class="item-title">Items (6)</p>
+                            <ul class="single-item">
+                                <li class="single-cart-item">
+                                    <div class="thumb">
+                                        <img src="assets/img/checkout/item1.png" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <h3>Helmate<br> <span>For Men, Made in China, 2017</span></h3>
+                                        <span>$250.00</span>
+                                    </div>
+                                    <span class="close">x</span>
+                                </li>
+                                <li class="single-cart-item">
+                                    <div class="thumb">
+                                        <img src="assets/img/checkout/item2.png" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <h3>Helmate<br> <span>For Men, Made in China, 2017</span></h3>
+                                        <span>$250.00</span>
+                                    </div>
+                                    <span class="close">x</span>
+                                </li>
+                                <li class="single-cart-item">
+                                    <div class="thumb">
+                                        <img src="assets/img/checkout/item3.png" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <h3>Helmate<br> <span>For Men, Made in China, 2017</span></h3>
+                                        <span>$250.00</span>
+                                    </div>
+                                    <span class="close">x</span>
+                                </li>
+                                <li class="single-cart-item">
+                                    <div class="thumb">
+                                        <img src="assets/img/checkout/item4.png" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <h3>Helmate<br> <span>For Men, Made in China, 2017</span></h3>
+                                        <span>$250.00</span>
+                                    </div>
+                                    <span class="close">x</span>
+                                </li>
+                                <li class="single-cart-item">
+                                    <div class="thumb">
+                                        <img src="assets/img/checkout/item5.png" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <h3>Helmate<br> <span>For Men, Made in China, 2017</span></h3>
+                                        <span>$250.00</span>
+                                    </div>
+                                    <span class="close">x</span>
+                                </li>
+                            </ul>
+                            <div class="total">
+                                <h3>Total</h3>
+                                <p class="text-right">$1250.00</p>
+                            </div>
+                            <div class="btn-wrapper desktop-center">
+                                <a href="#" class="btn btn-invoice">Cancel Invoice <i class="fa fa-long-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

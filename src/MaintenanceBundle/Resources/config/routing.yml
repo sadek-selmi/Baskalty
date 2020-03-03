@@ -1,0 +1,24 @@
+maintenance_homepage:
+  path:     /
+  defaults: { _controller: MaintenanceBundle:mechanicien:add }
+affiche_mecanicien:
+  path:     /affichemech
+  defaults: { _controller: MaintenanceBundle:mechanicien:affichee }
+delete_mecanicien:
+  path:     /delete/{id}
+  defaults: { _controller: MaintenanceBundle:mechanicien:delete }
+update_mecanicien:
+  path:     /update/{id}
+  defaults: { _controller: MaintenanceBundle:mechanicien:update}
+
+maintenance_ADD:
+    path:     /addmech
+    defaults: { _controller: MaintenanceBundle:mechanicien:add }
+
+DetailsMech:
+  path:     /Details/{id}
+  defaults: { _controller: MaintenanceBundle:mechanicien:DetailsMech }
+
+sms:
+  path:    /smss
+  defaults: { _controller: MaintenanceBundle:Default:SMS }
