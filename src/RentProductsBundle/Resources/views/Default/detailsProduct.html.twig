@@ -1,0 +1,315 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="product-details-tab">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="slider-tabfor slick-initialized slick-slider">
+                        <div aria-live="polite" class="slick-list draggable">
+                            <div class="slick-track" role="listbox" style="opacity: 1; width: 2225px;">
+                                <div class="single-item slick-slide slick-current slick-active" data-slick-index="0"
+                                     aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide10"
+                                     style="width: 445px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;">
+
+                                    <img src="{{ asset('') }}{{ vich_uploader_asset(details , 'imageFile') }}">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="content-part">
+                        <h1>{{ details.marke }}<br> <span>{{ details.model }}</span></h1>
+                        <span class="specifications">{{ details.reference }} </span>
+                        <span class="specifications"><i
+                                    class="fa fa-location-arrow">{{ details.localisation }}</i> </span>
+
+                        <span class="point">{{rating}}</span>
+                        <span class="rating">
+
+                             {% if rating|number_format(0, '.', ',') == 0 %}
+                                 <i style="color:#989595" class="fa fa-star"></i>
+                                 <i style="color:#989595" class="fa fa-star"></i>
+                                 <i style="color:#989595" class="fa fa-star"></i>
+                                 <i style="color:#989595" class="fa fa-star"></i>
+                                 <i style="color:#989595" class="fa fa-star"></i>
+                             {% endif %}
+                            {% if rating|number_format(0, '.', ',') == 1 %}
+                                <i style="color:#e3051a" class="fa fa-star"></i>
+                                <i style="color:#989595" class="fa fa-star"></i>
+                                <i style="color:#989595" class="fa fa-star"></i>
+                                <i style="color:#989595" class="fa fa-star"></i>
+                                <i style="color:#989595" class="fa fa-star"></i>
+                            {% endif %}
+                            {% if rating|number_format(0, '.', ',') == 2 %}
+                                <i style="color:#e3051a" class="fa fa-star"></i>
+                                <i style="color:#e3051a" class="fa fa-star"></i>
+                                <i style="color:#989595" class="fa fa-star"></i>
+                                <i style="color:#989595" class="fa fa-star"></i>
+                                <i style="color:#989595" class="fa fa-star"></i>
+                            {% endif %}
+                            {% if rating|number_format(0, '.', ',') == 3 %}
+                                <i style="color:#e3051a" class="fa fa-star"></i>
+                                <i style="color:#e3051a" class="fa fa-star"></i>
+                                <i style="color:#e3051a" class="fa fa-star"></i>
+                                <i style="color:#989595" class="fa fa-star"></i>
+                                <i style="color:#989595" class="fa fa-star"></i>
+                            {% endif %}
+                            {% if rating|number_format(0, '.', ',') == 4 %}
+                                <i style="color:#e3051a" class="fa fa-star"></i>
+                                <i style="color:#e3051a" class="fa fa-star"></i>
+                                <i style="color:#e3051a" class="fa fa-star"></i>
+                                <i style="color:#e3051a" class="fa fa-star"></i>
+                                <i style="color:#989595" class="fa fa-star"></i>
+                            {% endif %}
+                            {% if rating|number_format(0, '.', ',') == 5 %}
+                                <i style="color:#e3051a" class="fa fa-star"></i>
+                                <i style="color:#e3051a" class="fa fa-star"></i>
+                                <i style="color:#e3051a" class="fa fa-star"></i>
+                                <i style="color:#e3051a" class="fa fa-star"></i>
+                                <i style="color:#e3051a" class="fa fa-star"></i>
+                            {% endif %}
+
+                        </span>
+                        <p class="price">Price : {{ details.price }}</p>
+                        <p class="description">{{ details.description }}</p>
+                        <div class="margin-top-30 margin-bottom-30 btn-wrapper desktop-left">
+                                <a href="{{ path('NewReservation',{'id':details.id }) }}" class="btn sm-btn black-btn">Add to my rents <i class="fa fa-heart"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- form start -->
+    <div class="form-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 d-flex justify-content-center form-title">
+                    <h3>Reviews</h3>
+                </div>
+                <div class="col-lg-8 offset-lg-2 d-flex justify-content-center">
+                    <div class="form-group">
+                        <form method="post" class="form">
+
+                            <style>
+                                .rating {
+                                    display: inline-block;
+                                    position: relative;
+                                    height: 50px;
+                                    line-height: 50px;
+                                    font-size: 50px;
+                                }
+
+                                .rating label {
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    height: 100%;
+                                    cursor: pointer;
+                                }
+
+                                .rating label:last-child {
+                                    position: static;
+                                }
+
+                                .rating label:nth-child(1) {
+                                    z-index: 5;
+                                }
+
+                                .rating label:nth-child(2) {
+                                    z-index: 4;
+                                }
+
+                                .rating label:nth-child(3) {
+                                    z-index: 3;
+                                }
+
+                                .rating label:nth-child(4) {
+                                    z-index: 2;
+                                }
+
+                                .rating label:nth-child(5) {
+                                    z-index: 1;
+                                }
+
+                                .rating label input {
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    opacity: 0;
+                                }
+
+                                .rating label .icon {
+                                    float: left;
+                                    color: transparent;
+                                }
+
+                                .rating label:last-child .icon {
+                                    color: #000;
+                                }
+
+                                .rating:not(:hover) label input:checked ~ .icon,
+                                .rating:hover label:hover input ~ .icon {
+                                    color: #e3051a;
+                                }
+
+                                .rating label input:focus:not(:checked) ~ .icon:last-child {
+                                    color: #000;
+                                    text-shadow: 0 0 5px #e3051a;
+                                }
+                            </style>
+
+                            <div class="rating form-field margin-top-30">
+
+                                <label>
+                                    <input type="radio" name="stars" value="1"/>
+                                    <span class="icon">★</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="stars" value="2"/>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="stars" value="3"/>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="stars" value="4"/>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="stars" value="5"/>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                </label>
+
+
+                            </div>
+
+                            <div class="form-field margin-top-30">
+                                <input name="title" type="text" placeholder="Your Name" class="input-form"/>
+                            </div>
+
+                            <div class="form-field margin-top-30">
+                                <textarea name="description" id="message" cols="10" rows="5"
+                                          placeholder="Your Message"></textarea>
+                            </div>
+
+                            <br>
+                            <button type="submit"
+                                    class="col-lg-8 offset-lg-2 d-flex justify-content-center btn btn-element btn-lg btn-red">
+                                Add Rating
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <!-- form end -->
+
+
+    <div class="accordion-area">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-12">
+                    <div class="accordion-content">
+                        <div class="accordion-wrapper" id="accordionExample">
+                            {% for rev in reviews %}
+
+                                <div class="card">
+                                    <div class="card-header" id="headingOne">
+                                        <p>
+                                            <a>
+                                                {{ rev.title }}
+                                            </a>
+
+                                            <span style="
+
+                                    position: absolute;
+                                    right: 30px;
+                                    top: 25px;
+                                    font-size: 35px;
+
+                                        " class="rating">
+                                                {% if rev.stars|number_format(0, '.', ',') == 0 %}
+                                                    <i style="color:#989595" class="fa fa-star"></i>
+                                                    <i style="color:#989595" class="fa fa-star"></i>
+                                                    <i style="color:#989595" class="fa fa-star"></i>
+                                                    <i style="color:#989595" class="fa fa-star"></i>
+                                                    <i style="color:#989595" class="fa fa-star"></i>
+                                                {% endif %}
+                                                {% if rev.stars|number_format(0, '.', ',') == 1 %}
+                                                    <i style="color:#e3051a" class="fa fa-star"></i>
+                                                    <i style="color:#989595" class="fa fa-star"></i>
+                                                    <i style="color:#989595" class="fa fa-star"></i>
+                                                    <i style="color:#989595" class="fa fa-star"></i>
+                                                    <i style="color:#989595" class="fa fa-star"></i>
+                                                {% endif %}
+                                                {% if rev.stars|number_format(0, '.', ',') == 2 %}
+                                                    <i style="color:#e3051a" class="fa fa-star"></i>
+                                                    <i style="color:#e3051a" class="fa fa-star"></i>
+                                                    <i style="color:#989595" class="fa fa-star"></i>
+                                                    <i style="color:#989595" class="fa fa-star"></i>
+                                                    <i style="color:#989595" class="fa fa-star"></i>
+                                                {% endif %}
+                                                {% if rev.stars|number_format(0, '.', ',') == 3 %}
+                                                    <i style="color:#e3051a" class="fa fa-star"></i>
+                                                    <i style="color:#e3051a" class="fa fa-star"></i>
+                                                    <i style="color:#e3051a" class="fa fa-star"></i>
+                                                    <i style="color:#989595" class="fa fa-star"></i>
+                                                    <i style="color:#989595" class="fa fa-star"></i>
+                                                {% endif %}
+                                                {% if rev.stars|number_format(0, '.', ',') == 4 %}
+                                                    <i style="color:#e3051a" class="fa fa-star"></i>
+                                                    <i style="color:#e3051a" class="fa fa-star"></i>
+                                                    <i style="color:#e3051a" class="fa fa-star"></i>
+                                                    <i style="color:#e3051a" class="fa fa-star"></i>
+                                                    <i style="color:#989595" class="fa fa-star"></i>
+                                                {% endif %}
+                                                {% if rev.stars|number_format(0, '.', ',') == 5 %}
+                                                    <i style="color:#e3051a" class="fa fa-star"></i>
+                                                    <i style="color:#e3051a" class="fa fa-star"></i>
+                                                    <i style="color:#e3051a" class="fa fa-star"></i>
+                                                    <i style="color:#e3051a" class="fa fa-star"></i>
+                                                    <i style="color:#e3051a" class="fa fa-star"></i>
+                                                {% endif %}
+
+                                    </span>
+                                        </p>
+
+
+                                    </div>
+                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                         data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            {{ rev.description }}
+                                        </div>
+                                    </div>
+                                </div>
+
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

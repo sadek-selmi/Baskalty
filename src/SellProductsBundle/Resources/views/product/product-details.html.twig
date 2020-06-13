@@ -1,0 +1,131 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="product-details-tab">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="slider-tabfor slick-initialized slick-slider">
+                        <div aria-live="polite" class="slick-list draggable">
+                            <div class="slick-track" role="listbox" style="opacity: 1; width: 2225px;">
+                                <div class="single-item slick-slide slick-current slick-active" data-slick-index="0"
+                                     aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide10"
+                                     style="width: 445px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;">
+
+                                    <img src="{{ asset('') }}{{ vich_uploader_asset(details , 'imageFile') }}">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="content-part">
+                        <h1>{{ details.name }}<br> <span>{{ details.description }}</span></h1>
+                        <span class="specifications">{{ details.name }}</span>
+                        <span class="specifications">{{ details.reference }} </span>
+                        <span class="point">4.5</span><span class="rating"><i class="fa fa-star"></i><i
+                                    class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                    class="fa fa-star-half-o"></i></span>
+                        <p class="price">Price : ${{ details.price }}</p>
+                        <p class="description">{{ details.description }}</p>
+                        <!--add_to_panier-->
+                        <form method="post" action="{{ path('shop_addtopanier',{id:details.id}) }}">
+                                    {% if app.user %}
+                                        <input name="quantite" title="Qty" class="form-control" max="{{details.quantite}}" min="0" value="0" type="number">
+                                     <div class="margin-top-30 margin-bottom-30 btn-wrapper desktop-left">
+                                        <button type="submit" class="btn sm-btn">Add To Cart</button>
+                                        <button type="submit" class="btn sm-btn black-btn" value="{{ path('All_products') }}">Return to products</button>
+                                     </div>
+                                    {% else %}
+                                        <a href="{{ path('fos_user_security_login') }}">Log In / Register</a>
+                                    {% endif %}
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="cart-modal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="invoice">
+                        <div class="invoice-top">
+                            <h1>Shopping Cart</h1>
+                            <button type="button" class="close" data-dismiss="modal">Close - </button>
+                        </div>
+                        <div class="invoice-bottom">
+                            <h3 class="item-title">Items (6)</h3>
+                            <ul class="single-item">
+                                <li class="single-cart-item">
+                                    <div class="thumb">
+                                        <img src="assets/img/checkout/item1.png" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <h3>Helmate<br> <span>For Men, Made in China, 2017</span></h3>
+                                        <span>$250.00</span>
+                                    </div>
+                                    <span class="close">x</span>
+                                </li>
+                                <li class="single-cart-item">
+                                    <div class="thumb">
+                                        <img src="assets/img/checkout/item2.png" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <h3>Helmate<br> <span>For Men, Made in China, 2017</span></h3>
+                                        <span>$250.00</span>
+                                    </div>
+                                    <span class="close">x</span>
+                                </li>
+                                <li class="single-cart-item">
+                                    <div class="thumb">
+                                        <img src="assets/img/checkout/item3.png" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <h3>Helmate<br> <span>For Men, Made in China, 2017</span></h3>
+                                        <span>$250.00</span>
+                                    </div>
+                                    <span class="close">x</span>
+                                </li>
+                                <li class="single-cart-item">
+                                    <div class="thumb">
+                                        <img src="assets/img/checkout/item4.png" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <h3>Helmate<br> <span>For Men, Made in China, 2017</span></h3>
+                                        <span>$250.00</span>
+                                    </div>
+                                    <span class="close">x</span>
+                                </li>
+                                <li class="single-cart-item">
+                                    <div class="thumb">
+                                        <img src="assets/img/checkout/item5.png" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <h3>Helmate<br> <span>For Men, Made in China, 2017</span></h3>
+                                        <span>$250.00</span>
+                                    </div>
+                                    <span class="close">x</span>
+                                </li>
+                            </ul>
+                            <div class="total">
+                                <h3>Subtotal</h3>
+                                <p class="text-right">$1250.00</p>
+                            </div>
+                            <div class="btn-checkout btn-wrapper">
+                                <a class="btn btn-secondary btn-lg btn-block" href="checkout.html">Checkout process</a>
+                            </div>
+                            <div class="btn-wrapper desktop-center">
+                                <a href="#" class="btn btn-invoice">Continue Shopping <i class="fa fa-long-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

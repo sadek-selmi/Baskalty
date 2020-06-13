@@ -1,0 +1,34 @@
+security:
+  encoders:
+    FOS\UserBundle\Model\UserInterface: plaintext
+
+  role_hierarchy:
+    ROLE_ADMIN:       ROLE_USER
+    ROLE_ASSOCIATION: ROLE_ASSOCIATION
+    ROLE_vender: ROLE_vender
+    ROLE_SUPER_ADMIN:            ROLE_ADMIN
+    ROLE_Mechancien: ROLE_Mechancien
+    ROLE_locateur: ROLE_Locateur
+
+
+
+  providers:
+    fos_userbundle:
+      id: fos_user.user_provider.username
+
+  firewalls:
+    main:
+      pattern: ^/
+      user_checker: security.user_checker
+      form_login:
+        provider: fos_userbundle
+        csrf_token_generator: security.csrf.token_manager
+        success_handler: authentication.handler.login_success_handler
+      logout:       true
+      anonymous:    true
+
+  access_control:
+    - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/Admin/, role: ROLE_ADMIN }

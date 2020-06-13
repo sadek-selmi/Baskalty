@@ -1,0 +1,224 @@
+{% extends  'layout.html.twig' %}
+{% block content %}
+
+    <div class="event-breadcrumb">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-5 col-6">
+                    <div class="row">
+                        <div class="left">
+                            <img src="{{ asset('front/img/breadcrumb/breadcrumb4.png') }}" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7 col-6">
+
+                    <div class="row">
+                        <div class="breadcrumb-style-5">
+                            <div class="breadcrumb-inner">
+
+                                <h1 class="page-title">Events</h1>
+                                <ul class="page-list">
+                                    {% if app.user %}
+                                        {% if is_granted('ROLE_ASSOCIATION') %}
+                                            <li><a href="{{ path('events_add') }}">Add Event<i class="fa-send"></i></a>
+                                            </li>
+
+                                        {% else %}
+
+                                            <li><a href="{{ path('Formulaire') }}">Add Event<i class="fa-send"></i></a>
+                                            </li>
+                                        {% endif %}
+                                    {% else %}
+                                        <li><a href="{{ path('fos_user_security_login') }}">Add Event<i
+                                                        class="fa-send"></i></a></li>
+
+                                    {% endif %}
+
+                                    <li><a href="#">Events</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="event-slider-area">
+
+        <div class="container-fluid">
+            <div class="event-slider row">
+                {% for e in events %}
+                    <div class="single-item">
+
+                        <div class="item-left">
+
+                            <div class="left">
+
+                                <div class="time">
+                                    <h3>{{ e.start |date("d/m") }}</h3>
+                                    <span>{{ e.start|date('H:i') }}</span>
+                                </div>
+                                <span class="text">{{ e.name }}</span>
+                                <p>{{ e.description }}</p>
+
+                                <a href="{{ path('event_details' , {'id':e.id }) }}" class="btn sm-btn">Read More</a>
+
+                            </div>
+                        </div>
+                        <div class="item-right">
+                            <img src="{{ asset('') }}{{ vich_uploader_asset(e, 'imageFile') }}" alt="event">
+                        </div>
+
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="event-tab">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="tab-accordion">
+                        <div class="tab">
+                            <ul>
+                                <li class="tab-one active">Happening</li>
+                                <li class="tab-second">Upcoming</li>
+                                <li class="tab-three">Expired</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="tab-content">
+                        {% for e in events %}
+                            <div class="tab-one-content inactive active">
+                                <div class="event-left-content">
+                                    <div class="img-item row">
+                                        <div class="col-lg-4">
+                                            <div class="row h-100">
+                                                <div class="img-left">
+                                                    <img src="{{ asset('') }}{{ vich_uploader_asset(e, 'imageFile') }}"
+                                                         alt="">
+                                                    <div class="time">
+                                                        <h3>{{ e.start |date("d/m") }}</h3>
+                                                        <span>{{ e.start|date('H:i') }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-7 offset-lg-1 d-flex align-items-center">
+                                            <div class="content">
+
+                                                <span style=" size: A3">{{ e.name }}</span>
+
+                                                <br><br> <b><i class="fa fa-location-arrow"> </i> {{ e.location }}</b>
+                                                <h4>{{ e.start|date }} </h4><h4>{{ e.end|date }}</h4>
+                                                <div >
+
+
+                                                    {% if e.quantity == 0  and e.prix ==0 %}
+
+                                                    <span>Acces: <span style="color: #00aced">Gratuit</span></span>
+                                                    {% elseif e.quantity > 0  and e.prix !=0 %}
+                                                    <span>Available: <span style="color: #00c853">In stock</span></span><br>
+                                                    <span>Nombre Place: <span style="color: #00c853">{{e.quantity}}</span></span>
+                                                    <br>
+                                                    <span>Prix : <span style="color: #00c853"> {{e.prix}}</span></span>
+                                                    {% else %}
+                                                    <span>Prix : {{e.prix}}</span><br>
+                                                    <span>Available: <span style="color: red">Solde Out</span>
+                                                        {% endif %}
+
+                                                    <div class="col-lg-10 offset-lg-1 margin-bottom-100 margin-top-65 col-12">
+                                                        <div class="d-flex justify-content-md-around flex-column flex-md-row text-center">
+                                                            {% if app.user %}
+                                                                <div class="single-btn text-center">
+
+                                                                <div class="btn-wrapper">
+                                                                    {% if e.quantity ==0 and e.prix !=0 %}
+
+                                                                        <a  class="btn btn-element btn-lg btn-disabled disabled">Participer <strong>{{ e.Participernumber}}</strong></a>
+
+                                                                    {% else %}
+                                                                        <a href="{{ path('participer' , {'id':e.id }) }}" class="btn btn-element btn-lg btn-second">Participer <strong>{{ e.Participernumber}}</strong></a>
+
+                                                                    {% endif %}
+                                                                </div>
+                                                            </div>
+                                                                <div class="single-btn text-center">
+
+                                                                <div class="btn-wrapper">
+                                                                    <a href="{{ path('Intersted' , {'id':e.id }) }}" class="btn btn-element btn-lg btn-second">Intersted <strong>{{ e.Interstednumber}}</strong></a>
+                                                                </div>
+                                                            </div>
+                                                            {% else %}
+                                                                <div class="single-btn text-center">
+
+                                                                    <div class="btn-wrapper">
+                                                                        <a href="{{ path('fos_user_security_login') }}" class="btn btn-element btn-lg btn-disabled disabled">Intersted <strong>{{ e.Participernumber}}</strong></a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="single-btn text-center">
+
+                                                                    <div class="btn-wrapper">
+                                                                        <a href="{{ path('fos_user_security_login') }}" class="btn btn-element btn-lg btn-disabled disabled">Participer <strong>{{ e.Participernumber}}</strong></a>
+                                                                    </div>
+                                                                </div>
+
+
+
+
+                                                            {% endif %}
+
+                                                            <div class="single-btn text-center">
+
+                                                                <div class="btn-wrapper">
+                                                                    <a href="{{ path('event_details' , {'id':e.id }) }}" class="btn btn-element btn-lg btn-active">Details</a>
+                                                                </div>
+                                                            </div>
+
+
+
+                                                        </div>
+
+
+                                                    </div>
+                                                    {%if app.user == e.userid  %}
+                                                        <div class="single-btn text-center">
+
+                                                            <div class="btn-wrapper">
+                                                                <a href="{{ path('participer-user' , {'id':e.id }) }}" class="btn btn-element btn-lg btn-active">List</a>
+                                                            </div>
+                                                        </div>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+
+
+                    </div>
+
+                </div>
+                <div class="navigation ">
+                    {{ knp_pagination_render(events) }}
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+{% endblock %}

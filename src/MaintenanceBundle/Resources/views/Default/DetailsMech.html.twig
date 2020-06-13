@@ -1,0 +1,51 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+    <div class="breadcrumb-style-2" style="background-image:url(assets/img/breadcrumb/button.png);">
+        <div class="breadcrumb-inner">
+            <h1 class="page-title">List of mechanics</h1>
+        </div>
+    </div>
+    <!-- breadcrumb end -->
+    <!-- product-details-tab start -->
+
+            <div class="product-details-tab">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="slider-tabfor">
+                            <div class="single-item">
+                                <img src="{{ asset('') }}{{ vich_uploader_asset(mechaniciens, 'imageFile') }}"
+                                     alt="">
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+
+                        <div class="content-part">
+                            <h1>{{ mechaniciens.nom }}{{ mechaniciens.prenom }}<br> <span>{{ mechaniciens.experience }}</span></h1>
+                            <span class="specifications">adresse: {{ mechaniciens.mail }}</span>
+                            <span class="specifications">Num tel: {{ mechaniciens.numTel }} </span>
+                            <span class="point">4.5</span><span class="rating"><i class="fa fa-star"></i><i
+                                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                        class="fa fa-star-half-o"></i></span>
+                            <p class="price">PRIX : ${{mechaniciens.prix }}/H  </p>
+                            <p class="description">{{ mechaniciens.description }}.</p>
+                            <div class="map">
+                                <iframe src="https://maps.google.com/maps?q={{ mechaniciens.region }} }}&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+                            </div>
+
+                            {%if app.user == mechaniciens.userid  %}
+                                <div class="margin-top-30 margin-bottom-30 btn-wrapper desktop-left">
+
+                                    <a href="{{ path('sms') }}" class="btn sm-btn">Call me </a>
+                                </div>
+                            {% endif %}
+
+
+                        </div>
+                    </div>
+                </div></div>
+
+{% endblock %}

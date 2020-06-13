@@ -1,0 +1,138 @@
+mobile_api_homepage:
+    path:     /
+    defaults: { _controller: MobileApiBundle:Default:index }
+
+read_products:
+    path:     /products/all
+    defaults: { _controller: MobileApiBundle:product:all }
+
+find_product_by_id:
+    path:     /products/find/{id}
+    defaults: { _controller: MobileApiBundle:product:find }
+add_product:
+    path:     /products/add
+    defaults: { _controller: MobileApiBundle:product:add }
+
+delete_product:
+    path:     /products/delete
+    defaults: { _controller: MobileApiBundle:product:delete }
+
+
+edit_product:
+    path:     /products/edit
+    defaults: { _controller: MobileApiBundle:product:edit }
+
+comment_show_last:
+    path:     /products/showlast
+    defaults: { _controller: MobileApiBundle:product:showRecentAdded }
+
+delete_heee :
+    path:     /panier/delete
+    defaults: { _controller: MobileApiBundle:panier:deleteProductFromPanier }
+
+add_to_panier:
+    path:     /panier/add/{id_prod}
+    defaults: { _controller: MobileApiBundle:panier:AddPanier }
+
+contenu_panier :
+    path:     /panier
+    defaults: { _controller: MobileApiBundle:panier:getPanier }
+
+add_order:
+    path:     /orders/add
+    defaults: { _controller: MobileApiBundle:order:AddOrder }
+
+get_Orders :
+    path:     /orders/get
+    defaults: { _controller: MobileApiBundle:order:getOrder }
+
+Order_from_panier :
+    path:     /panier/order/{total}
+    defaults: { _controller: MobileApiBundle:panier:order }
+
+
+Order_all :
+    path:    /panier/orderall/{total}
+    defaults : { _controller: MobileApiBundle:panier:OrderAll}
+
+Login_user:
+    path:   /login/{email}/{password}
+    defaults : { _controller : MobileApiBundle:user:login}
+
+Register_user:
+    path:   /Register/{username}/{email}/{password}/{repeatedpassword}/{roles}/{image}
+    defaults : { _controller : MobileApiBundle:user:register}
+
+Edit_profile:
+    path:  /Profile/edit/{id}/{username}/{email}/{password}/{repeatedpassword}
+    defaults : { _controller : MobileApiBundle:user:edit}
+
+Find_user_by_id:
+    path:  /Profile/find
+    defaults: { _controller: MobileApiBundle:user:findUserByid}
+
+find_products_by_userid:
+    path:  /products/getByUser/{id}
+    defaults: { _controller: MobileApiBundle:product:findProductsByUser}
+addcomment:
+    path:     /Addd
+    defaults: { _controller: MobileApiBundle:Default:AjouterCommenter }
+afficomment:
+    path:     /afff
+    defaults: { _controller: MobileApiBundle:Default:affichercommenter }
+modifiercomm:
+    path:     /modifiercom/{id}
+    defaults: { _controller: MobileApiBundle:Default:modifiercommenter }
+affichermobile:
+    path:     /Affichermobile
+    defaults: { _controller: MobileApiBundle:Default:afficheM }
+
+events_addMobile:
+    path:     /AddM
+    defaults: { _controller: MobileApiBundle:Default:AjouterM }
+event_detailsM:
+    path:     /detailsM/{id}
+    defaults: { _controller: MobileApiBundle:Default:DetailsM }
+
+delete_evnt:
+    path:     /Events/delete
+    defaults: { _controller: MobileApiBundle:Default:delete }
+edit_event:
+    path:     /editevent
+    defaults: { _controller: MobileApiBundle:Default:editev }
+find_events_by_userid:
+    path:  /eventss/{id}
+    defaults: { _controller: MobileApiBundle:Default:findeventsByUser}
+Interstedmobile:
+    path:     /Interstedm
+    defaults: { _controller: MobileApiBundle:Default:Interstedm}
+participer-mobile:
+    path:     /participerusermobile
+    defaults: { _controller: MobileApiBundle:Default:Participerm }
+envoyerMail:
+    path:    /mail
+    defaults: { _controller: MobileApiBundle:Default:envoyerMail }
+downloadPdfff:
+    path:    /pdff
+    defaults: { _controller: MobileApiBundle:Default:downloadPdfs }
+
+
+envoyerdddConfirmation:
+    path:     /envoyerConfirmationmobile
+    defaults: { _controller: MobileApiBundle:Default:envoyerConfirmations }
+
+chams:
+    path:     /chams
+    defaults: { _controller: MobileApiBundle:Default:chams }
+chamss:
+    path:     /chamss
+    defaults: { _controller: MobileApiBundle:Default:chamss }
+chamss_sksk:
+    path:     /partii
+    defaults: { _controller: MobileApiBundle:Default:affichePartici }
+Rentadds:
+    path:     /addrent
+    defaults: { _controller: MobileApiBundle:Rent:add }
+Rentread:
+    path:     /readrent
+    defaults: { _controller: MobileApiBundle:Rent:Read }

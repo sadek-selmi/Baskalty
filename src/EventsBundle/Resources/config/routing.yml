@@ -1,0 +1,62 @@
+events_homepage:
+  path:     /
+  defaults: { _controller: EventsBundle:Default:index }
+
+events_add:
+  path:     /Add
+  defaults: { _controller: EventsBundle:Default:Ajouter }
+events_show:
+  path:     /Afficher
+  defaults: { _controller: EventsBundle:Default:index }
+
+event_details:
+  path:     /details/{id}
+  defaults: { _controller: EventsBundle:Default:Details }
+participer:
+  path:     /participer/{id}
+  defaults: { _controller: EventsBundle:Default:Participer }
+my:
+  path:     /my/{id}
+  defaults: { _controller: EventsBundle:Default:My }
+
+Formulaire:
+  path:     /Form
+  defaults: { _controller: EventsBundle:Default:Formulaire }
+edit_events:
+  path:     /edit/{id}
+  defaults: { _controller: EventsBundle:Default:edit }
+delete_events:
+  path:     /delete/{id}
+  defaults: { _controller: EventsBundle:Default:delete }
+edit_form:
+  path:     /editform/{id}
+  defaults: { _controller: EventsBundle:Default:editfor }
+delete_for:
+  path:     /deleteform/{id}
+  defaults: { _controller: EventsBundle:Default:deletefor }
+Intersted:
+  path:     /Intersted/{id}
+  defaults: { _controller: EventsBundle:Default:Intersted}
+participer-user:
+  path:     /participeruser/{id}
+  defaults: { _controller: EventsBundle:Default:formul }
+erreur:
+  path:    /erreur
+  defaults: { _controller: EventsBundle:Default:Erreur }
+sms:
+  path:    /sms
+  defaults: { _controller: EventsBundle:Default:SMS }
+envoyerMail:
+  path:    /mail
+  defaults: { _controller: EventsBundle:Default:envoyerMail }
+downloadPdf:
+  path:    /pdf/{id}
+  defaults: { _controller: EventsBundle:Default:downloadPdf }
+
+date:
+  path:     /date
+  defaults: { _controller: EventsBundle:Default:modify }
+  
+envoyerConfirmation:
+  path:     /envoyerConfirmation
+  defaults: { _controller: EventsBundle:Default:envoyerConfirmation }

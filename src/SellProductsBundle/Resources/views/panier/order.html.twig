@@ -1,0 +1,134 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+    <div class="delivery-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="row">
+                        <div class="delivery-content">
+                            <br>
+                            <div class="delivery-tab">
+                                <ul class="nav nav-pills">
+                                    <li><a data-toggle="pill" href="#menu1"><i class="fa fa-map-marker"></i> <span>Pick Up Point</span> </a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div id="home" class="tab-pane fade in active show">
+                                        <h2 class="content-title">Enter delivery address</h2>
+                                        <div class="form-group">
+                                            <form method="post" class="tm-form" action="{{ path('orders',{total:total}) }}">
+                                                <div class="form-field margin-top-30 margin-bottom-30">
+                                                    <label for="name">Full Name</label>
+                                                    <input id="name" type="text" placeholder="Mr willium smith" class="input-form">
+                                                </div>
+                                                <div class="form-field margin-top-30 margin-bottom-30">
+                                                    <label for="phn">Phone Number</label>
+                                                    <input name="phonenumber" type="text" placeholder="+8374823 356345" class="input-form">
+                                                </div>
+                                                <div class="form-field margin-top-30 margin-bottom-30">
+                                                    <label for="phn1">Alternative phone number (Optional)</label>
+                                                    <input name="alphn" type="text" placeholder="+8374823 356345" class="input-form">
+                                                </div>
+                                                <div class="form-field margin-top-30">
+                                                    <label>City</label>
+                                                    <input  name="city" type="text" placeholder="Tunisia" class="input-form">
+                                                </div>
+                                                <div class="form-field margin-top-30 margin-bottom-30">
+                                                    <label for="address">Address</label>
+                                                    <textarea name="address" cols="30" rows="5" placeholder="Iris Watson P.O. Box 283 8562 Fusce Rd. Frederick Nebraska 20620 (372) 587-2335"></textarea>
+                                                </div>
+                                                <div class="form-field margin-top-30 margin-bottom-30">
+                                                    <label for="instruction">Delivery Instructions (Optional)</label>
+                                                    <textarea name="instruction" cols="30" rows="5" placeholder="x x x x x x x x x x xx x x x xx x x x x x x x x x x x x x x x x x x xx x x x xx x x x x x x x x x x x x x x x x x x xx x x x xx x x x x x x x x"></textarea>
+                                                </div>
+                                                <div class="btn-wrapper desktop-left">
+                                                    <button type="submit" class="btn sm-btn">Go to payment</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div id="menu1" class="tab-pane fade">
+                                        <h2 class="content-title">Pick up point</h2>
+                                        <div class="form-group">
+                                            <form action="#" class="form">
+                                                <div class="form-field margin-top-30 margin-bottom-30">
+                                                    <label for="name1">Full Name</label>
+                                                    <input id="name1" type="text" placeholder="Mr willium smith" class="input-form">
+                                                </div>
+                                                <div class="form-field margin-top-30 margin-bottom-30">
+                                                    <label for="phn2">Phone Number</label>
+                                                    <input id="phn2" type="number" placeholder="+8374823 356345" class="input-form">
+                                                </div>
+                                                <div class="form-field margin-top-30 margin-bottom-30">
+                                                    <label for="phn3">Alternative phone number (Optional)</label>
+                                                    <input id="phn3" type="number" placeholder="+8374823 356345" class="input-form">
+                                                </div>
+                                                <div class="form-field margin-top-30">
+                                                    <label>City</label>
+                                                    <select class="select-form country_select" style="display: none;">
+                                                        <option value="Chandpur" selected="">Chandpur</option>
+                                                        <option value="Dhaka">Dhaka</option>
+                                                        <option value="Comilla">Comilla</option>
+                                                        <option value="Rajshahi">Rajshahi</option>
+                                                    </select><div class="nice-select select-form country_select" tabindex="0"><span class="current">Chandpur</span><ul class="list"><li data-value="Chandpur" class="option selected">Chandpur</li><li data-value="Dhaka" class="option">Dhaka</li><li data-value="Comilla" class="option">Comilla</li><li data-value="Rajshahi" class="option">Rajshahi</li></ul></div>
+                                                </div>
+                                                <div class="form-field margin-top-30 margin-bottom-30">
+                                                    <label for="address2">Address</label>
+                                                    <textarea id="address2" cols="30" rows="5" placeholder="Iris Watson P.O. Box 283 8562 Fusce Rd. Frederick Nebraska 20620 (372) 587-2335"></textarea>
+                                                </div>
+                                                <div class="form-field margin-top-30 margin-bottom-30">
+                                                    <label for="instruction2">Delivery Instructions (Optional)</label>
+                                                    <textarea id="instruction2" cols="30" rows="5" placeholder="x x x x x x x x x x xx x x x xx x x x x x x x x x x x x x x x x x x xx x x x xx x x x x x x x x x x x x x x x x x x xx x x x xx x x x x x x x x"></textarea>
+                                                </div>
+                                                <div class="btn-wrapper desktop-left">
+                                                    <a href="#" class="btn sm-btn">Go to payment</a>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="invoice">
+                        <div class="invoice-top">
+                            <h1>Invoice # 428836 Summary</h1>
+                            <h5>Estimated Delivery : 25 - 28 July</h5>
+                        </div>
+
+                        <div class="invoice-bottom">
+                            <h3 class="item-title">Items ({{ items }})</h3>
+
+                            <ul class="single-item">
+                                {% for p in panier %}
+                                <li class="single-cart-item">
+                                    <div class="thumb">
+                                        <img class="image_style" src="{{ vich_uploader_asset(p.ProduitP, 'imageFile') }}">
+                                    </div>
+                                    <div class="content">
+                                        <h3>{{ p.ProduitP.name }}<br> <span>{{ p.ProduitP.description }}</span></h3>
+                                        <span>${{ p.ProduitP.price }}</span>
+                                    </div>
+                                    <a href="{{ path('deletech',{'id':p.id}) }}"> <span class="close">x</span></a>
+
+                                </li>
+                                {% endfor %}
+                            </ul>
+
+                            <div class="total">
+                                <h3>Total</h3>
+                                <p class="text-right">${{ total }}</p>
+                            </div>
+                            <div class="btn-payment btn-wrapper">
+                                <a class="btn btn-secondary btn-lg btn-block">Continue to payment</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

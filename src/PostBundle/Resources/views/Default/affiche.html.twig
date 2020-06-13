@@ -1,0 +1,285 @@
+{% extends  'layout.html.twig' %}
+{% block content %}
+    <div class="breadcrumb-style-7">
+        <div class="breadcrumb-inner">
+            <h1 class="page-title">Posts</h1>
+        </div>
+    </div>
+
+    <div class="blog-slider-style-01 margin-top-120 margin-bottom-120">
+        <div class="container">
+            <div class="row">
+                <div class="blog-slider1">
+                    <div class="single-item">
+                        <img src="{{ asset ('front/img/blog/top-slider1.png')}}" alt="">
+                        <div class="slider-content">
+                            <a  size="20px" >La bicyclette incarne le mythe de l’ homme libre.</a>
+                        </div>
+                    </div>
+                    <div class="single-item">
+                        <img src="{{ asset ('front/img/blog/top-slider2.png')}}" alt="">
+                        <div class="slider-content">
+                            <a>Une promenade à bicyclette est une evasion de la tristesse</a>
+                        </div>
+                    </div>
+                    <div class="single-item">
+                        <img src="{{ asset('front/img/blog/top-slider3.png')}}" alt="">
+                        <div class="slider-content">
+                            <a>Rien n'est comparable avec le simple plaisir d'un tour à bicyclette.</a>
+                        </div>
+                    </div>
+                    <div class="single-item">
+                        <img src="{{ asset('front/img/blog/top-slider1.png')}}" alt="">
+                        <div class="slider-content">
+                            <a>La bicyclette est la plus noble invention de l'homme
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blog-content padding-top-120 padding-bottom-115">
+        <div class="container">
+            <div class="row">
+                {% for c in cyrine %}
+                {% if c.accept == '1' %}
+                <div class="col-lg-8 col-md-12">
+                    <div class="blog-left-content">
+                        <div class="img-item row margin-bottom-30">
+                            <div class="col-md-6">
+                                <div class="row h-100">
+                                    <div class="blog-thumb d-flex">
+                                        <img src="{{ asset('images_shop/' ~ c.image) }}" width="500" height="300" alt="">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="content">
+                                    <h4>{{ c.datecreation|date() }}</h4>
+                                    <i class="fa fa-user"></i>{{ app.user.username }}
+                                    <span class="text"> {{ c.contenu|raw }}</span></p>
+                                        <ul class="post-meta">
+                                        <li><a href="#"><i style="color: #00e5ff" class="fa fa-comments"></i> Comments</a></li>
+                                        <li><a href="#"><i style="color: #005cbf" class="fa fa-thumbs-up"></i> Likes</a></li>
+                                    </ul>
+                                    <div class="btn-wrapper desktop-left">
+                                        <a href="{{ path('details', {'id':c.id})}}" class="btn btn-element btn-normal btn-red">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-item row margin-bottom-30">
+                            <div class="col-md-6">
+                                <div class="row h-100">
+                                    <div class="blog-thumb d-flex">
+                                        <img src="assets/img/blog/image-item2.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- blog content end -->
+
+            {% endif %}
+            {% endfor %}
+            <br>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                   <div class="navigation ">
+                        {{ knp_pagination_render(cyrine) }}
+                    </div>
+
+            <!-- jquery -->
+            <script src="assets/js/jquery-2.2.4.min.js"></script>
+            <!-- popper -->
+            <script src="assets/js/popper.min.js"></script>
+            <!-- bootstrap -->
+            <script src="assets/js/bootstrap.min.js"></script>
+            <!-- magnific popup -->
+            <script src="assets/js/jquery.magnific-popup.js"></script>
+            <!-- swiper -->
+            <script src="assets/js/swiper.min.js"></script>
+            <!-- wow -->
+            <script src="assets/js/wow.min.js"></script>
+            <!-- nice select -->
+            <script src="assets/js/nice-select.js"></script>
+            <!-- owl carousel -->
+            <script src="assets/js/owl.carousel.min.js"></script>
+            <!-- Slick -->
+            <script src="assets/js/slick.min.js"></script>
+            <!-- Slick Animation -->
+            <script src="assets/js/slick-animation.js"></script>
+            <!-- waypoint -->
+            <script src="assets/js/waypoints.min.js"></script>
+            <!-- counterup -->
+            <script src="assets/js/jquery.counterup.min.js"></script>
+            <!-- imageloaded -->
+            <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+            <!-- isotope -->
+            <script src="assets/js/isotope.pkgd.min.js"></script>
+            <!-- rProgressbar -->
+            <script src="assets/js/jQuery.rProgressbar.min.js"></script>
+            <!-- main js -->
+            <script src="assets/js/script.js"></script>
+            <script src="assets/js/main.js"></script>
+
+
+
+            <!-- Mirrored from codingeek.net/html/billatrail/blog.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 04 Feb 2020 12:47:20 GMT -->
+        </div></div>
+{% endblock %}
+
+{#    <div class="breadcrumb-style-7">#}
+{#        <div class="breadcrumb-inner">#}
+{#            <h1 class="page-title">Posts</h1>#}
+{#        </div>#}
+{#    </div>#}
+{#    <br>#}
+{#    <br>#}
+
+{#    <form rel="async" class="_559p" action="/ajax/updatestatus.php?av=100000783799604&amp;eav=AfbNdVGbgb_CPra9iefe82MXslh9h2rTZh1rQr-w0Q8Jp1yJDrwv10Zde5QIq_NwqGk" method="post" onsubmit="" id="u_0_1d">#}
+{#        <input type="hidden" name="jazoest" value="22220" autocomplete="off">#}
+{#        <input type="hidden" name="fb_dtsg" value="AQHmzYQyI4hu:AQHGpbaWbFkv" autocomplete="off">#}
+{#        <div id="u_0_1e">#}
+{#            <div class="clearfix _ikh _1hx">#}
+{#                <div class="_4bl7">#}
+{#                </div>#}
+{#                <div class="_4bl9 _42n-">#}
+{#                    <textarea title="Exprimez-vous" class="_3en1 _480e navigationFocus" aria-label="Exprimez-vous, Cyrine" name="xhpc_message" placeholder="Exprimez-vous, Cyrine" id="js_b"></textarea>#}
+{#                    <input type="hidden" autocomplete="off" name="xhpc_message_text">#}
+{#                </div>#}
+{#            </div>#}
+
+{#        </div>#}
+
+{#    </form>#}
+
+
+
+
+
+
+
+
+{#    <div class="blog-single-content">#}
+{#        <div class="container">#}
+{#            <div class="row">#}
+{#                {% for c in cyrine %}#}
+{#                {% if c.accept == '1' %}#}
+{#                <div class="blog-details-item">#}
+{#                    <div class="thumb border-thumb">#}
+{#                        <div class="post-thumbnail">#}
+{#                            <img src="{{ asset('images_shop/' ~ c.image) }}" width="500" height="300" alt="">                        </div>#}
+{#                    </div>#}
+{#                    <div class="content margin-top-75">#}
+{#                        <h5 class="margin-bottom-30">{{ c.datecreation|date() }}#}
+{#                        </h5>#}
+{#                        <span>#}
+{#                        {{ c.contenu|raw }}#}
+{#                        </span>#}
+{#                        <p class="margin-top-30">#}
+{#                        </p>#}
+{#                        <ul class="post-meta margin-top-50">#}
+{#                            <li><a href="#"><i class="fa fa-user"></i> {{ app.user.username }} </a></li>#}
+{#                            <li><a href="#"><i class="fa fa-comments"></i> </a></li>#}
+
+{#                            <li><a href="{{ path('likeBlog',{id:c.id}) }}"><i class="fa fa-thumbs-up"></i> </a></li>#}
+{#                        </ul>#}
+{#                        <div class="btn-wrapper desktop-left">#}
+{#                            <a href = "{{ path('details', {'id':c.id})}}" class="btn btn-element btn-normal btn-red">Read More</a>#}
+{#                        </div>#}
+{#                        {% endif %}#}
+{#{% endfor %}#}
+{#                        <!-- comment area start -->#}
+{#                      <br><br><br>  <!-- comment area end -->#}
+{#                    </div>#}
+{#                </div>#}
+
+{#            </div>#}
+{#        </div>#}
+{#        <div class="navigation ">#}
+{#            {{ knp_pagination_render(cyrine) }}#}
+{#        </div>#}
+{#    </div>#}
+{#{% endblock %}#}
+
+{#{% extends "layout.html.twig" %}#}
+
+{#{% block content %}#}
+{#    <div align="center">#}
+{#        <div class="breadcrumb-style-3">#}
+{#            <div class="breadcrumb-inner">#}
+{#                <h1 class="page-title">Posts</h1>#}
+
+{#            </div>#}
+{#        </div>#}
+{#        <br>#}
+{#        <div class="slider-item row margin-bottom-30">#}
+{#            <div class="col-lg-12">#}
+{#                <div class="row">#}
+{#                    <div class="blog-slider3">#}
+{#                        <div class="single-item">#}
+{#                            <img src="assets/img/blog/slider-item1.png" alt="">#}
+{#                        </div>#}
+{#                        <div class="single-item">#}
+{#                      </div>#}
+{#                      <div class="single-item">#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div align="center">#}
+{#                <div class="col-lg-8 col-md-12">#}
+{#                    <div class="blog-left-content">#}
+{#                        <div >#}
+{#                            <div class="col-md-6">#}
+{#                                <div class="row h-100">#}
+
+{#                                    {% for c in cyrine %}#}
+{#                                    <img src="{{ asset('images_shop/' ~ c.image) }}" width="500" height="300" alt="">#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+
+
+{#                        <div class="col-md-6">#}
+{#                            <div class="content">#}
+{#                                <span class="text" style="color: #0b0b0b">{{ c.contenu }}</span>#}
+{#                                <ul class="post-meta">#}
+{#                                    <li style="color: #0b0b0b"><a href=""><i style="color: #0b0b0b"class="fa fa-comments"></i> 1200 Comments</a></li>#}
+{#                                    <li style="color: #0b0b0b" ><a href=""><i style="color: #0b0b0b" class="fa fa-heart"></i> 120 Likes</a></li>#}
+{#                                </ul>#}
+
+{#                                <div class="btn-wrapper desktop-left">#}
+{#                                    #}{#                                <a href = "{{ path('detais', {'id':c.id})}}" class="btn btn-element btn-normal btn-red">Read More</a>#}
+
+{#                                </div>#}
+{#                                <div class="btn-wrapper desktop-left">#}
+{#                                    <a href = "{{ path('details', {'id':c.id})}}" class="btn btn-element btn-normal btn-red">Read More</a>#}
+
+{#                                </div>#}
+{#                                <br><br><br>#}
+{#                                {% endfor %}#}
+
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="img-item row margin-bottom-30">#}
+{#                    <div class="col-md-6">#}
+{#                        <div class="row h-100">#}
+{#                            <div class="blog-thumb d-flex">#}
+{#                                <!--Image Link -->#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+
+{#        </div>#}
+{#    </div>#}
+{#{% endblock %}#}

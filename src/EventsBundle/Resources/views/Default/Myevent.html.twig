@@ -1,0 +1,273 @@
+{% extends  'layout.html.twig' %}
+{% block content %}
+    <link rel="stylesheet" href="{{ asset('bundles/fullcalendar/css/fullcalendar/fullcalendar.min.css') }}" />
+
+    <div class="table-content margin-top-97 margin-bottom-85">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="element-title text-center margin-bottom-50">
+                        <h3><strong>My</strong> Event <strong>L</strong>ist</h3>
+                        <a href="{{ path('erreur') }}">zz</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <table class="table color-black table-striped">
+                    <thead>
+                    <tr>
+
+
+                        <th scope="col">Number</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Delete</th>
+                        <th scope="col">Update</th>
+                        <th scope="col">List</th>
+
+                    </tr>
+                    </thead>
+
+
+                    {% for e in parti %}
+                        {% if idpar == e.userid.id %}
+                            <tbody>
+                            <tr>
+                                <td><i class="fa fa-check"></i> {{e.id}}</td>
+                                <td>{{ e.name }}</td>
+                                <td>{{ e.start | date }}</td>
+
+                                <td>  <a href="{{ path('delete_events',{id:e.id}) }}" ><i class="fa fa-trash"></i> Delete</a>
+
+                                </td>
+                                <td><a href="{{ path('edit_events',{id:e.id}) }}" > <i class="fa fa-edit"></i>Update </a></td>
+                                <td> <a href="{{ path('participer-user' , {'id':e.id }) }}"
+                                        class="btn btn-invoice"><i class="fa fa-star"></i>List</a></td>
+                            </tr>
+
+
+                            </tbody>
+
+
+                        {% endif  %}
+                    {% endfor %}
+                </table>
+            </div>
+            {% include '@FullCalendar/Calendar/calendar.html.twig' %}
+        </div>
+    </div>
+
+
+
+
+    {% block javascripts %}
+        <script type="text/javascript"
+                src="{{ asset('bundles/fullcalendar/js/fullcalendar/lib/jquery.min.js') }}"></script>
+        <script type="text/javascript"
+                src="{{ asset('bundles/fullcalendar/js/fullcalendar/lib/moment.min.js') }}"></script>
+        <script type="text/javascript"
+                src="{{ asset('bundles/fullcalendar/js/fullcalendar/fullcalendar.min.js') }}"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#eventbundle_evenement_dateDebuteventbundle_evenement_dateDebut').blur(function(){
+                    var startDate = moment($('#eventbundle_evenement_dateDebut').val(), "YYYY/MM/DD HH:mm A").toDate();
+                    var today =moment().toDate();
+                    if(startDate<=today){
+                        alert('Veuillez selectionner une date de début dans le futur')
+
+                    }
+                });
+
+                $('#eventbundle_evenement_dateFin').blur(function(){
+                    var startDate = moment($('#eventbundle_evenement_dateDebut').val(), "YYYY/MM/DD HH:mm A").toDate();
+                    var endDate = moment($('#eventbundle_evenement_dateFin').val(), "YYYY/MM/DD HH:mm A").toDate();
+                    var today =moment().toDate();
+                    if(startDate<=today){
+                        alert('Veuillez selectionner une date de début dans le futur')
+
+                    }else {
+                        if(endDate<today){
+                            alert('La date fin doit etre au futur');
+
+                        }else {
+
+
+                            if(endDate<startDate){
+                                alert('La date fin doit etre supérieure à la date début');
+                            }}
+                    }
+                });
+                <!----------------------------------------FIN CONDITION DATE DEBUT ET DATE FIN-------------------------------->
+
+
+        </script>
+        <!----------------------------------------FIN RECHERCHE EVENMENT-------------------------------------------->
+
+        <!----------------------------------------DEBUT FULL CALENDAR-------------------------------------------->
+        <script type="text/javascript"
+                src="{{ asset('bundles/fullcalendar/js/fullcalendar/lib/jquery.min.js') }}"></script>
+        <script type="text/javascript"
+                src="{{ asset('bundles/fullcalendar/js/fullcalendar/lib/moment.min.js') }}"></script>
+        <script type="text/javascript"
+                src="{{ asset('bundles/fullcalendar/js/fullcalendar/fullcalendar.min.js') }}"></script>
+        <script>
+
+
+
+            $(function () {
+                $('#calendar-holder').fullCalendar({
+                    header: {
+                        left: 'prev, next',
+                        center: 'title',
+                        right: 'month, basicWeek, basicDay,'
+                    },
+
+
+                    lazyFetching: false,
+                    timeFormat: {
+                        agenda: 'h:mmt',
+                        '': 'h:mmt'
+                    },
+
+                    eventSources: [
+                        {
+                            url: "../../../../web/app_dev.php/full-calendar/load",
+                            type: 'POST',
+                            color: 'bleu',
+                            textColor: 'white',
+                            data: {},
+                            error: function () {
+                            }
+                        }
+                    ],eventRender:function(event, element){
+                        element.css('text-align', 'center');
+
+                    },
+
+
+                    eventClick: function (calEvent, jsEvent, view) {
+
+
+                        window.location.href = "http://localhost/Pi-dev-final/web/app_dev.php/Events/details/" + calEvent.id
+
+
+                    },
+                    //CHANGEMENT DE LA DATE DANS CALENDEIER
+
+                    eventDrop: function (calEvent, jsEvent, view) {
+                        var start = calEvent.start;
+                        var end = calEvent.end;
+                        var user = {{ app.user.id }}
+                        var opt = {
+                            autoOpen: true,
+                            modal: true,
+
+                            width: 250,
+                            height: 150,
+
+                        };
+
+
+                        if (!confirm("Voulez vous changer la date")) {
+
+                            revertFunc();
+
+                        } else {
+
+
+                            //ENVOI OBJET JSON AU FRONTEND JAVASCRIPT ET BACKEND PHP
+                            $.ajax({
+                                type: "POST",
+                                url: "{{ path('date') }}",
+                                data: {
+                                    "event": calEvent.title,
+                                    "datedebut": start.format(),
+                                    "datefin": end.format(),
+                                    "user": user
+                                },
+                                success: function (data) {
+                                    $.noConflict();
+                                    if (data == "yes") {
+
+                                        console.log(data)
+
+                                        $(function () {
+                                            $("#dialog").dialog(opt);
+                                            $("#dialog").dialog("open");
+                                        });
+
+
+                                    } else {
+                                        alert("no");
+                                        revertFunc();
+                                    }
+
+
+                                },
+                                error: function () {
+                                    revertFunc();
+                                }
+                            });
+
+                        }
+
+                    },
+
+
+                    //CHAGEMENT DU DUREE DU CALENDRIER EN UTILISANT REVERTFUNC
+                    eventResize: function (event, delta, revertFunc) {
+
+                        var start = event.start;
+                        var end = event.end;
+                        var user = {{ app.user.id }}
+                        if (!confirm("Voulez vous changer la duree")) {
+
+                            revertFunc();
+
+                        } else {
+                            $.ajax({
+                                type: "POST",
+                                url: "{{ path('date') }}",
+                                data: {
+                                    "event": event.title,
+                                    "datedebut": start.format(),
+                                    "datefin": end.format(),
+                                    "user": user
+                                },
+                                success: function (data) {
+                                    if (data == "yes") {
+                                        alert("yes");
+                                        console.log(data)
+                                        $(function () {
+                                            $("#dialog").dialog(opt);
+                                            $("#dialog").dialog("open");
+
+
+                                        });
+
+                                    } else {
+                                        alert("no");
+                                        revertFunc();
+                                    }
+                                },
+                                error: function () {
+                                    revertFunc();
+                                }
+                            });
+                        }
+
+                    },
+
+
+                });
+
+            });
+
+
+        </script>
+
+    {% endblock %}
+
+
+{% endblock %}
+

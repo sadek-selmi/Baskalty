@@ -1,0 +1,58 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+<div class="signinup-area">
+    <div class="content col-lg-6 col-md-6">
+        <div class="login-panel">
+            <div class="panel-heading">
+                <a href="{{ path('home') }}"><img src="{{ asset('front/img/logo5.png') }}" alt="logo" style="max-width: 50%;"></a>
+            </div>
+            <div class="panel-body">
+                <form action="{{ path("fos_user_security_check") }}" method="post">
+                    {% if csrf_token %}
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                    {% endif %}
+                    <div class="form-group">
+                        <label for="username">{{ 'security.login.username'|trans }}</label>
+                        <input type="text" id="username"  class="form-control" placeholder="Username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">{{ 'security.login.password'|trans }}</label>
+                        <input type="password" id="password"  class="form-control" placeholder="Password" name="_password" required="required" autocomplete="current-password" />
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                        <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+                    </div>
+                    <div class="action">
+                        <div class="action-left">
+                            <p>Sign in with <a href="https://www.facebook.com/" class="facebook">Facebook</a></p>
+                            <span class="or">Or</span>
+                            <p>Sign in with <a href="https://mail.google.com/mail/" class="gmail">Gmail</a></p>
+                        </div>
+                        <div class="btn-wrapper desktop-right">
+                            <input type="submit" class="btn sm-btn" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+                        </div>
+                    </div>
+                    <p class="bottom">Don't Have An Account Please <a class="signup" href="{{ path('fos_user_registration_register') }}">Sign up </a> Now</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

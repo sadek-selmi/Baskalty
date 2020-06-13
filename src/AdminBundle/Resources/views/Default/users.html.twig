@@ -1,0 +1,104 @@
+{% extends "Admin/layout.html.twig" %}
+{% block content %}
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <ul class="breadcrumb breadcrumb-style ">
+                        <li class="breadcrumb-item">
+                            <h4 class="page-title">Dashboard</h4>
+                        </li>
+                        <li class="breadcrumb-item bcrumb-1">
+                            <a href="index.html">
+                                <i class="fas fa-home"></i> Home</a>
+                        </li>
+                        <li class="breadcrumb-item active">User</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    <div class="row clearfix">
+        <!-- Task Info -->
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        <strong>Clients</strong> Details</h2>
+                    <ul class="header-dropdown m-r--5">
+                        <li class="dropdown">
+                            <a href="#" onClick="return false;" class="dropdown-toggle" data-toggle="dropdown"
+                               role="button"
+                               aria-haspopup="true" aria-expanded="false">
+                                <i class="material-icons">more_vert</i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                                <li>
+                                    <a href="#" onClick="return false;">Action</a>
+                                </li>
+                                <li>
+                                    <a href="#" onClick="return false;">Another action</a>
+                                </li>
+                                <li>
+                                    <a href="#" onClick="return false;">Something else here</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tableBody">
+                    <div class="table-responsive">
+
+                            <table class="table table-hover dashboard-task-infos">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Status</th>
+                                    <th>Role</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                {% for e in users %}
+
+                                <tbody>
+                                <tr>
+                                    <td class="table-img">
+                                        <img src="{{ asset('dashboard/') }}assets/images/user/user1.jpg" alt="">
+                                    </td>
+                                    <td>{{ e.username }}</td>
+                                    <td>{{ e.email }}</td>
+                                    <td>
+                                        <span class="label bg-green shadow-style">Active</span>
+                                    </td>
+                                    {% if e.roles=='ROLE_ASSOCIATION' %}
+                                    HEHEH
+                                    {% else %}
+                                    <td><a href="{{ path('admin_changeRoleAssociation',{id:e.id}) }}"><i class="material-icons">A</i></a></td>
+                                    {% endif %}
+                                    <td>
+                      <a   href="{{ path('Delete_homepage',{id:e.id}) }}">     <i class="material-icons">delete</i>  </a>
+
+                                    </td>
+                                </tr>
+
+
+                                </tbody>
+                                {% endfor %}
+                            </table>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div  class="navigation ">
+                {{ knp_pagination_render(users) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

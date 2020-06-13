@@ -1,0 +1,15 @@
+contacus_homepage:
+    path:     /
+    defaults: { _controller: ContacusBundle:Default:index }
+aboutus:
+    path:     /aboutus
+    defaults: { _controller: ContacusBundle:Default:index }
+
+
+registeruser:
+    path:     /user/register
+    defaults: { _controller: ContacusBundle:User:register }
+
+loginusert:
+    path:     /user/login/{email}/{password}
+    defaults: { _controller: ContacusBundle:User:login }

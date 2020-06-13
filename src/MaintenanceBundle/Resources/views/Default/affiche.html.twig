@@ -1,0 +1,62 @@
+
+
+
+        {% extends 'layout.html.twig' %}
+{% block content %}
+    <div class="breadcrumb-style-2" style="background-image:url(assets/img/breadcrumb/button.png);">
+        <div class="breadcrumb-inner">
+            <h1 class="page-title">List of mechanics</h1>
+        </div>
+    </div>
+    <!-- breadcrumb end -->
+    <!-- product-details-tab start -->
+
+
+    <div class="shop-tab">
+        <div class="tab-content">
+            <div class="container">
+                <div class="tab-content-area">
+                    <div class="tab-one-content inactive active">
+                        <div class="row">
+
+                            {% for p in mechaniciens %}
+                                <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                                    <div class="shop-item">
+                                        <h1 class="top-text">{{ p.nom }}<span>{{ p.prenom }}</span></h1>
+                                        <ul class="cart-menu">
+                                            </li>
+                                            <li style="color : #0b0b0b"><strong>{{ p.prix }}$</strong></li>
+
+                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-map"></i></a>
+                                            </li>
+                                        </ul>
+                                        <a href="{{ path('DetailsMech',{'id':p.id}) }}">
+                                            <img src="{{ asset('') }}{{ vich_uploader_asset(p, 'imageFile') }}">
+                                        </a>
+                                        <span class="bottom-text">{{ p.region }}</span>
+                                        {% if app.user == p.userid %}
+                                            <span class="bottom-text" style="margin-left: 194px;font-size:30px;">
+                                             <a href="{{ path('update_mecanicien',{'id':p.id}) }}">
+                                                <i class="fa fa-pencil-square-o" style=""></i>
+                                            </a>
+                                            <a href="{{ path('delete_mecanicien',{'id':p.id }) }}">
+                                            <i class="fa fa-trash"></i>
+                                            </a>
+                                    </span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="navigation ">
+            {{ knp_pagination_render(mechaniciens) }}
+        </div>
+    </div>
+{% endblock %}

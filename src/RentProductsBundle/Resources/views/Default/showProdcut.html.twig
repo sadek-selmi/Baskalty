@@ -1,0 +1,147 @@
+
+{% extends 'layout.html.twig' %}
+{% block content %}
+
+
+
+
+<!-- nav area end -->
+
+<!-- shop-banner start -->
+<div class="shop-banner padding-bottom-100 padding-top-40">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-4 col-md-6">
+                <h1>Choose the Best one That’s right for you.</h1>
+            </div>
+            <div class="col-xl-4 col-md-6 position-relative">
+                <div class="middle-left">
+                    <img src="{{ asset('front/img/shop/banner1.png')}}" alt="">
+                </div>
+                <div class="middle-right">
+                    <img src="{{ asset('front/img/shop/banner1.png')}}" alt="">
+                </div>
+            </div>
+            <div class="col-xl-4 d-none d-xl-block position-relative">
+                <div class="right-part">
+                    <img class="img1" src="{{ asset('front/img/shop/banner2.png')}}" alt="">
+                    <img class="img2" src="{{ asset('front/img/shop/banner3.png')}}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- shop-banner end -->
+
+<!-- shop-tab start -->
+<div class="shop-tab">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="tab-accordion">
+                <div class="tab">
+                    <ul>
+                        <li class="tab-one active">All</li>
+                        <li class="tab-second">Helmat</li>
+                        <li class="tab-third">Breaclet</li>
+                        <li class="tab-fourth">Key Ring</li>
+                        <li class="tab-fifth">Cap</li>
+                        <li class="tab-sixth">Hand Gloves</li>
+                        <li class="tab-seventh">T-Shirt</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-content">
+        <div class="container">
+            <div class="tab-content-area">
+                <div class="tab-one-content inactive active">
+                    <div class="row padding-top-120">
+                        <div class="col-xl-3 col-lg-4">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-6">
+                                    <div class="shop-content">
+                                        <h2>Helmate product is here</h2>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet semper augue.</p>
+                                        <div class="btn-wrapper">
+                                            <a href="#" class="btn sm-btn btn-style-3">See Details</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 col-md-6">
+                                    <div class="shop-item">
+                                        <h1 class="top-text">KEY RING <span>Clyde Court Men’s</span></h1>
+                                        <ul class="cart-menu">
+                                            <li><a href="#">$120</a></li>
+                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                        </ul>
+                                        <img class="shop-image" alt="shop" src="{{ asset('front/img/shop/item1.png')}}">
+                                        <span class="bottom-text">For Men, Made in China, 2017</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-9 col-lg-8">
+                            <div class="shop-big-thumb">
+                                <img src="{{ asset('front/img/shop/shop-big.png')}}" alt="shop">
+                            </div>
+                        </div>
+                    </div>    <div class="row">
+                    {%  for e in products %}
+
+                        {% if e.renter is same as(null) %}
+
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                                <div class="shop-item">
+                                    <h1 class="top-text">{{ e.marke}} <span>{{ e.model }}</span></h1>
+                                    <ul class="cart-menu">
+                                        <li><a href="#">{{ e.price }}</a></li>
+                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
+                                    <a href="{{ path('details_productsR',{'id':e.id}) }}">
+                                        <img src="{{ asset('') }}{{ vich_uploader_asset(e, 'imageFile') }}">
+                                    </a>
+                                    <span class="bottom-text">{{ e.Rentdays }}</span>
+                                    {%  if app.user == e.userid %}
+                                        <span class="bottom-text" style="margin-left: 194px;font-size:30px;">
+                                             <a href="{{ path('updateProductR',{'id':e.id}) }}">
+                                                <i class="fa fa-pencil-square-o" style=""></i>
+                                            </a>
+                                            <a href="{{ path('deleteProductR',{'id':e.id }) }}">
+                                            <i class="fa fa-trash"></i>
+                                            </a>
+                                    </span>
+                                    {% else %}
+                                        <span class="bottom-text" style="margin-left: 194px;font-size:30px;">
+                                    <a href="{{ path('NewReservation',{'id':e.id }) }}">
+                                            <i class="fa fa-upload"></i>
+                                        </a>
+                                    </span>
+
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                        {% endif %}
+
+
+
+                    {%  endfor %}
+                </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+    <div  class="navigation ">
+        {{ knp_pagination_render(products) }}
+    </div>
+</div>
+    {% endblock %}

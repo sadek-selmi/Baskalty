@@ -1,0 +1,4 @@
+services:
+#    contacus.example:
+#        class: ContacusBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

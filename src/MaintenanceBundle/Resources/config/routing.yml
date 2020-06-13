@@ -1,0 +1,46 @@
+maintenance_homepage:
+  path:     /
+  defaults: { _controller: MaintenanceBundle:mechanicien:add }
+affiche_mecanicien:
+  path:     /affichemech
+  defaults: { _controller: MaintenanceBundle:mechanicien:affichee }
+delete_mecanicien:
+  path:     /delete/{id}
+  defaults: { _controller: MaintenanceBundle:mechanicien:delete }
+update_mecanicien:
+  path:     /update/{id}
+  defaults: { _controller: MaintenanceBundle:mechanicien:update}
+
+maintenance_ADD:
+    path:     /addmech
+    defaults: { _controller: MaintenanceBundle:mechanicien:add }
+
+DetailsMech:
+  path:     /Details/{id}
+  defaults: { _controller: MaintenanceBundle:mechanicien:DetailsMech }
+
+sms:
+  path:    /smss
+  defaults: { _controller: MaintenanceBundle:Default:SMS }
+affiche:
+  path:     /all
+  defaults: { _controller: MaintenanceBundle:mechanicien:all }
+
+ajouterMechancien:
+  path:     /addMob
+  defaults: { _controller: MaintenanceBundle:mechanicien:new }
+DetailsMob:
+  path:     /DetailsMob/{id}
+  defaults: { _controller: MaintenanceBundle:mechanicien:DetailsMob }
+
+update_mecanicien_mobile:
+  path:     /edit
+  defaults: { _controller: MaintenanceBundle:mechanicien:edit}
+
+userid_mecanicien_mobile:
+  path:     /findMecanicienbByUser/{id}
+  defaults: { _controller: MaintenanceBundle:mechanicien:findMecanicienbByUser}
+
+deleteMec_mobile:
+  path:     /deleteMec
+  defaults: { _controller: MaintenanceBundle:mechanicien:deleteMec}

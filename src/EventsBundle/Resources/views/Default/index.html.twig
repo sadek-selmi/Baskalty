@@ -1,0 +1,203 @@
+{% extends  'layout.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/fullcalendar/css/fullcalendar/fullcalendar.min.css') }}" />
+{% endblock %}
+{% block content %}
+
+
+
+
+    <div class="event-breadcrumb">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-5 col-6">
+                    <div class="row">
+                        <div class="left">
+                            <img src="{{ asset('front/img/breadcrumb/breadcrumb4.png') }}" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7 col-6">
+
+                    <div class="row">
+                        <div class="breadcrumb-style-5">
+                            <div class="breadcrumb-inner">
+
+                                <h1 class="page-title">Events</h1>
+                                <ul class="page-list">
+                                    {% if app.user %}
+                                        {% if is_granted('ROLE_ASSOCIATION') %}
+                                            <li><a href="{{ path('events_add') }}">Add Event<i class="fa-send"></i></a>
+                                            </li>
+
+                                        {% else %}
+
+                                            <li><a href="{{ path('Formulaire') }}">Add Event<i class="fa-send"></i></a>
+                                            </li>
+                                        {% endif %}
+                                    {% else %}
+                                        <li><a href="{{ path('fos_user_security_login') }}">Add Event<i
+                                                        class="fa-send"></i></a></li>
+
+                                    {% endif %}
+
+                                    <li><a href="#">Events</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="event-tab">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="tab-accordion">
+                        <div class="tab">
+                            <ul>
+                                <li class="tab-one active">Happening</li>
+                                <li class="tab-second">Upcoming</li>
+                                <li class="tab-three">Expired</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="tab-content">
+                        {% set foo = 0 %}
+                        {% for e in events %}
+                            {% set foo = e.id %}
+                            <div class="tab-one-content inactive active">
+                                <div class="event-left-content">
+                                    <div class="img-item row">
+                                        <div class="col-lg-4">
+                                            <div class="row h-100">
+                                                <div class="img-left">
+                                                    <img src="{{ asset('') }}{{ vich_uploader_asset(e, 'imageFile') }}"
+                                                         alt="">
+                                                    <div class="time">
+                                                        <h3>{{ e.start |date("d/m") }}</h3>
+                                                        <span>{{ e.start|date('H:i') }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-7 offset-lg-1 d-flex align-items-center">
+                                            <div class="content">
+                                                <span class="text extra-bold"><strong>{{ e.name }}</strong></span><br>
+                                                <b><i class="fa fa-map-marker"></i> {{ e.location }}</b>
+                                                <br>
+                                                <br> {% if e.quantity == 0  and e.prix ==0 %}
+
+                                                <span>Acces: <span style="color: #00aced">Gratuit</span></span>
+                                                <br> {% elseif e.quantity > 0  and e.prix !=0 %}
+                                                <span>Available: <span style="color: #00c853">In stock</span></span><br>
+                                                <span>Nombre Place: <span style="color: #00c853">{{ e.quantity }}</span></span>
+                                                <br>
+                                                <span>Prix : <span style="color: #00c853"> {{ e.prix }}</span></span>
+                                                <br> {% else %}
+                                                <span>Prix : {{ e.prix }}</span><br>
+                                                <br> <span>Available: <span style="color: red">Solde Out</span>
+                                                        {% endif %}
+                                                <div>
+
+
+
+                                                    <div class="col-lg-10 offset-lg-1 margin-bottom-100 margin-top-65 col-12">
+                                                        <div class="d-flex justify-content-md-around flex-column flex-md-row text-center">
+                                                            {% if app.user %}
+                                                                <div class="single-btn text-center">
+
+                                                                <div class="btn-wrapper">
+                                                                    {% if e.quantity ==0 and e.prix !=0 %}
+
+                                                                        <a class="btn btn-invoice"> <strong>{{ e.Participernumber }}</strong> Participe </a>
+
+                                                                    {% else %}
+                                                                        {% if check %}
+
+
+
+                                                                            <a href="{{ path('participer' , {'id':e.id }) }}"
+                                                                               class="btn btn-invoice"><i
+                                                                                        style="color:#c82333"
+                                                                                        class="fa fa-check-square-o"></i><strong>{{ e.Participernumber }}</strong> Participer</a>
+                                                                      {% else %}
+                                                                            <a href="{{ path('participer' , {'id':e.id }) }}"
+                                                                               class="btn btn-invoice"><i
+                                                                                        class="fa fa-check-square-o"></i><strong>{{ e.Participernumber }}</strong> Participer</a>
+                                                                        {% endif %}
+                                                                    {% endif %}
+                                                                </div>
+                                                            </div>
+                                                                <div class="single-btn text-center">
+
+                                                                <div class="btn-wrapper">
+                                                                    <a href="{{ path('Intersted' , {'id':e.id }) }}"
+                                                                       class="btn btn-invoice"><i
+                                                                                class="flaticon-star"></i><strong> {{ e.Interstednumber }}</strong> </a>
+                                                                </div>
+                                                            </div>
+                                                            {% else %}
+                                                                <div class="single-btn text-center">
+
+                                                                    <div class="btn-wrapper">
+                                                                        <a href="{{ path('fos_user_security_login') }}"
+                                                                           class="btn btn-element btn-lg btn-disabled disabled"><i
+                                                                                    class="fa fa-star"></i> <strong>{{ e.Participernumber }}</strong></a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="single-btn text-center">
+
+                                                                    <div class="btn-wrapper">
+                                                                        <span href="{{ path('fos_user_security_login') }}"
+                                                                              class="btn btn-element btn-lg btn-disabled disabled">Participe <strong>{{ e.Participernumber }}</strong></span>
+                                                                    </div>
+                                                                </div>
+
+
+
+
+                                                            {% endif %}
+
+   <div class="btn-wrapper desktop-center">
+                             <a href="{{ path('event_details' , {'id':e.id }) }}" class="btn btn-invoice">Details <i
+                                         class="fa fa-long-arrow-right"></i></a>
+                            </div>
+
+
+                                                        </div>
+
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+
+
+                    </div>
+
+                </div>
+                <div class="navigation ">
+                    {{ knp_pagination_render(events) }}
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+formulairLoc:
+    path:     /formulairL/
+    defaults: { _controller: RentProductsBundle:Default:formulaireL}
+addProductR:
+    path:     /addproductR
+    defaults: { _controller: RentProductsBundle:Default:add}
+
+deleteProductR:
+    path:     /deleteproductR/{id}
+    defaults : { _controller : RentProductsBundle:Default:delete}
+
+details_productsR:
+    path:    /productsDetailsR/{id}
+    defaults: {_controller : RentProductsBundle:Default:details}
+
+updateProductR:
+    path:    /updateproductR/{id}
+    defaults : { _controller: RentProductsBundle:Default:update}
+All_productsR:
+    path:     /readProductsR
+    defaults: { _controller: RentProductsBundle:Default:read }
+
+Reservation:
+    path:     /Res/{id}
+    defaults: { _controller: RentProductsBundle:Default:res }
+
+NewReservation:
+    path:     /NewRes/{id}
+    defaults: { _controller: RentProductsBundle:Default:RentProd }
+downloadPdfRent:
+    path:    /dpdfRent/{id}
+    defaults: { _controller: RentProductsBundle:Default:downloadPdf }
+
+confirm:
+    path:    /confirm/{id}
+    defaults: { _controller: RentProductsBundle:Default:confirm }
+
+myRents:
+    path:    /myRent
+    defaults: { _controller: RentProductsBundle:Default:myRents }
+
+reject:
+    path:     /reject/{id}
+    defaults: { _controller: RentProductsBundle:Default:reject }
