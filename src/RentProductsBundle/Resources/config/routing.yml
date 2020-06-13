@@ -1,3 +1,0 @@
-rent_products_homepage:
-    path:     /
-    defaults: { _controller: RentProductsBundle:Default:index }

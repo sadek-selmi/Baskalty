@@ -1,3 +1,0 @@
-maintenance_homepage:
-    path:     /
-    defaults: { _controller: MaintenanceBundle:Default:index }

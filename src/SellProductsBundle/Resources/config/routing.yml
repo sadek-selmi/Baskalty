@@ -1,3 +1,0 @@
-sellroduct_homepage:
-    path:     /
-    defaults: { _controller: SellProductsBundle:Default:index }
